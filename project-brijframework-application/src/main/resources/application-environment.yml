@@ -1,0 +1,38 @@
+logging:
+  level:
+    error
+
+application:
+  profiles:
+    active: "dev"
+  main:
+    banner-mode: "off"
+
+server:
+  email: default@mkyong.com
+
+---
+application:
+  profiles: dev
+  resource:
+    config:
+     location : classpath:data
+     enable : true
+  model:
+   config: 
+     location : classpath:\data\models
+     packages : org.brijframework.dao
+     enable : false
+  bean:
+   config: 
+     location : classpath:\data\beans
+     packages : com.brijframework
+     enable : true
+server:
+  email: dev@mkyong.com
+
+---
+application:
+  profiles: prod
+server:
+  email: prod@mkyong.com

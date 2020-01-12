@@ -1,0 +1,15 @@
+[
+	{
+		"id": "INVERTORY_APP_OWNER",
+		"type": "com.brijframework.application.model.EOAppRole",
+		"name": "appRole",
+		"properties": {
+			"appRoleId": "INVERTORY_APP_OWNER",
+			"appRoleName": "OWNER",
+			"appMenuId": "INVERTORY_APP_OWNER",
+			"application": {
+				"@ref": "INVERTORY_APP"
+			}
+		}
+	}
+]
