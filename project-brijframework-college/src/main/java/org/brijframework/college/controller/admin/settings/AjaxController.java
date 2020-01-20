@@ -17,7 +17,6 @@ import org.brijframework.college.models.dto.StudentDTO;
 import org.brijframework.college.models.dto.StudentFeeSubmissionDetailsDTO;
 import org.brijframework.college.service.CityService;
 import org.brijframework.college.service.CountryService;
-import org.brijframework.college.service.EmployeeRoleService;
 import org.brijframework.college.service.ExpenseService;
 import org.brijframework.college.service.LastDateService;
 import org.brijframework.college.service.SectionService;
@@ -56,8 +55,7 @@ public class AjaxController {
 	LastDateService lastDateService;
 	@Autowired
 	private StudentCategoryService studentCategoryService;
-	@Autowired
-	private EmployeeRoleService employeeRoleService;
+	
 	@Autowired
 	private SessionService sessionService;
 	@Autowired

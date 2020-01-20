@@ -1,31 +1,19 @@
 package org.brijframework.college.controller.admin.student;
 
-import java.awt.Color;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.brijframework.college.models.dto.StudentDTO;
-import org.brijframework.college.models.dto.StudentTransferDTO;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
-import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
-import com.lowagie.text.Element;
-import com.lowagie.text.Font;
-import com.lowagie.text.FontFactory;
-import com.lowagie.text.Image;
 import com.lowagie.text.Paragraph;
-import com.lowagie.text.Rectangle;
-import com.lowagie.text.pdf.PdfPCell;
-import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 public class TransferCertificate extends AbstractPdfView {
-	@SuppressWarnings("unchecked")
 	@Override
-	protected void buildPdfDocument(Map model, Document document,
+	protected void buildPdfDocument(Map<String, Object> model, Document document,
 			PdfWriter writer, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 

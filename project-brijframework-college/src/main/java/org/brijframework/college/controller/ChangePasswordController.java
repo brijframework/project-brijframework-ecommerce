@@ -5,10 +5,10 @@ import javax.servlet.http.HttpSession;
 
 import org.brijframework.college.common.constant.CommonConstants;
 import org.brijframework.college.model.User;
-import org.brijframework.college.model.util.PasswordEncoder;
 import org.brijframework.college.models.dto.FeecategoryAmountDTO;
 import org.brijframework.college.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +21,9 @@ public class ChangePasswordController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@RequestMapping(value = "change-password.html", method = RequestMethod.GET)
 	public String chabgePassword(ModelMap model) {
@@ -51,8 +54,8 @@ public class ChangePasswordController {
 					new FeecategoryAmountDTO());
 			return "changepassword";
 		} else {
-			user.setPassword(PasswordEncoder
-					.getEcodedPassword(feecategoryAmountDTO.getNewPassword()));
+			user.setPassword(passwordEncoder
+					.encode(feecategoryAmountDTO.getNewPassword()));
 			userService.update(user);
 			model.addAttribute("info", "Password changed successfully");
 			if (role.equals("ROLE_ADMIN")) {

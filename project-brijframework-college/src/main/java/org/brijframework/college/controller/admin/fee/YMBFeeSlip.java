@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.brijframework.college.models.dto.CommonDTO;
 import org.brijframework.college.models.dto.FeesCategoriesDTO;
 import org.brijframework.college.models.dto.StudentDTO;
-import org.brijframework.college.models.dto.StudentFeeSubmissionDetailsDTO;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
 import com.lowagie.text.Chunk;
@@ -41,7 +40,6 @@ public class YMBFeeSlip extends AbstractPdfView {
 				.getRealPath("/");
 		imagePath += "/img/scan.jpg";
 
-		int i = 0;
 		float total = 0f;
 
 		document.open();
@@ -301,11 +299,8 @@ public class YMBFeeSlip extends AbstractPdfView {
 		pCell.addElement(new Paragraph("P.", font));
 		table1.addCell(pCell);
 
-		String paidBy = "";
-		String chequeNo = "";
 		font = FontFactory.getFont(FontFactory.TIMES_BOLD, 10);
 		font.setColor(Color.black);
-		i = 1;
 
 		for (FeesCategoriesDTO feedto : commonDTO.getFeecategoriesDTOs()) {
 			/*
@@ -329,14 +324,7 @@ public class YMBFeeSlip extends AbstractPdfView {
 			table1.addCell(pCell);
 
 		}
-		StudentFeeSubmissionDetailsDTO studentFeeSubmissionDetailsDTO = commonDTO
-				.getStudentFeeSubmissionDetailsDTO();
-		paidBy = studentFeeSubmissionDetailsDTO.getPaidBy();
-		if (studentFeeSubmissionDetailsDTO.getChequeNo() != null) {
-			chequeNo = studentFeeSubmissionDetailsDTO.getChequeNo();
-		} else
-			chequeNo = "...........";
-
+	
 		/*
 		 * pCell = new PdfPCell();
 		 * 

@@ -39,8 +39,6 @@ public class OffLineAppForm extends AbstractPdfView {
 				.getRealPath("/");
 		//imagePath += "/img/maharana.jpg";
 		imagePath += "/img/nida.jpg";
-		String imagePath1 = request.getSession().getServletContext()
-				.getRealPath("/");
 		// imagePath1 += "/img/studentImages/" + studentDTO.getImageName();
 		document.open();
 		PdfPTable tables1 = new PdfPTable(1);

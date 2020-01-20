@@ -12,10 +12,10 @@ import org.brijframework.college.model.Students;
 import org.brijframework.college.model.User;
 import org.brijframework.college.model.UserRole;
 import org.brijframework.college.model.util.EmailUtility;
-import org.brijframework.college.model.util.PasswordEncoder;
 import org.brijframework.college.models.dto.ParentsDTO;
 import org.brijframework.college.service.ParentsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +37,9 @@ public class ParentsServiceImpl extends
 	UserRoleDao userRoleDao;
 	@Autowired
 	StudentsAdmissionDao studentsAdmissionDao;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Transactional
 	public String parentsRegistration(ParentsDTO dto) throws Exception {
@@ -48,7 +51,7 @@ public class ParentsServiceImpl extends
 					+ RandomPasswordUtil.getRandomString();
 			String password = RandomPasswordUtil.getRandomString();
 			user.setEnabled(true);
-			user.setPassword(PasswordEncoder.getEcodedPassword(password));
+			user.setPassword(passwordEncoder.encode(password));
 			user.setUsername(userName);
 			LoginRole role = roleDao.getUserRoleByName("ROLE_PARENTS");
 			UserRole userRole = new UserRole();

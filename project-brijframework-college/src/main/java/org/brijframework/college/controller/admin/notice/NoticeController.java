@@ -10,11 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import org.brijframework.college.models.dto.NoticeDTO;
 import org.brijframework.college.service.NoticeService;
-import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,7 +73,7 @@ public class NoticeController {
 
 	@RequestMapping(value = "edit.html", method = RequestMethod.GET)
 	public String EditNotice(
-			@Param int id,
+			@PathVariable int id,
 			HttpServletResponse response,
 			@RequestParam(value = "pageno", defaultValue = "0", required = false) int pageno,
 			HttpServletRequest request, Model model) throws IOException,
@@ -99,7 +99,7 @@ public class NoticeController {
 
 	@RequestMapping(value = "delete.html", method = RequestMethod.GET)
 	public void DeleteNotice(
-			@Param int id,
+			@PathVariable int id,
 			HttpServletResponse response,
 			@RequestParam(value = "pageno", defaultValue = "0", required = false) int pageno)
 			throws IOException {
@@ -109,7 +109,7 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "view.html", method = RequestMethod.GET)
-	public String ViewNotice(@Param int id, HttpServletRequest request,
+	public String ViewNotice(@PathVariable int id, HttpServletRequest request,
 			HttpServletResponse response, Model model) throws IOException,
 			ParseException {
 		NoticeDTO dto = noticeService.EditNotice(id);

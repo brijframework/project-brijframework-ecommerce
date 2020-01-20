@@ -325,7 +325,7 @@ public class StudentAttendanceServiceImpl extends
 			for (int i = 1; i <= day; i++) {
 				StudentAttendanceDTO dto = new StudentAttendanceDTO();
 				 if (holidayList.contains(i)) {
-					String date1 = calendar.get(calendar.YEAR) + "-"
+					String date1 = calendar.get(Calendar.YEAR) + "-"
 							+ (monthId) + "-" + i;
 					Holiday holiday = holidayDao
 							.getDataForCreateHoliday(new SimpleDateFormat(
@@ -622,8 +622,8 @@ public class StudentAttendanceServiceImpl extends
 		map.put("StudentDTOs", studentDTOs);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
-		int day = calendar.get(calendar.DAY_OF_WEEK);
-		if (day == calendar.SUNDAY) {
+		int day = calendar.get(Calendar.DAY_OF_WEEK);
+		if (day == Calendar.SUNDAY) {
 			map.put("HOLIDAY", "Sunday");
 		} else {
 			Holiday holiday = holidayDao.getDataForCreateHoliday(date);

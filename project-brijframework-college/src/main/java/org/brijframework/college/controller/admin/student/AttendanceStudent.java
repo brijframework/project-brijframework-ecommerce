@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.brijframework.college.models.dto.StudentAttendanceDTO;
 import org.brijframework.college.models.dto.StudentDTO;
-import org.springframework.web.servlet.view.document.AbstractExcelView;
+import org.springframework.web.servlet.view.document.AbstractXlsView;
 
-public class AttendanceStudent extends AbstractExcelView {
+public class AttendanceStudent extends AbstractXlsView {
 
+	@SuppressWarnings("unchecked")
 	@Override
-	protected void buildExcelDocument(Map model, HSSFWorkbook workbook,
+	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
@@ -34,7 +35,7 @@ public class AttendanceStudent extends AbstractExcelView {
 			section = studentDTO.getSectionName();
 		}
 
-		HSSFSheet excelSheet = workbook
+		Sheet excelSheet = workbook
 				.createSheet("Attendance Report for the Month of \"" + month
 						+ "\" of Class \"" + classes + "\" of Section \""
 						+ section + "\"");
@@ -47,7 +48,7 @@ public class AttendanceStudent extends AbstractExcelView {
 		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
 		font.setColor(HSSFColor.WHITE.index);
 		style.setFont(font);
-		HSSFRow excelHeader = excelSheet.createRow(0);
+		Row excelHeader = excelSheet.createRow(0);
 		excelHeader.createCell(0).setCellValue("Student Name");
 		excelHeader.getCell(0).setCellStyle(style);
 		excelHeader.createCell(1).setCellValue("Total Number Of Days");
@@ -65,7 +66,7 @@ public class AttendanceStudent extends AbstractExcelView {
 		setExcelRows(excelSheet, list);
 	}
 
-	public void setExcelRows(HSSFSheet excelSheet, List<StudentDTO> list) {
+	public void setExcelRows(Sheet excelSheet, List<StudentDTO> list) {
 		int totalNoOfDays = 0;
 		int noOfDaysPresent = 0;
 		int noOfDaysAbsent = 0;
@@ -86,7 +87,7 @@ public class AttendanceStudent extends AbstractExcelView {
 				percentageOfAttendance = studentAttendanceDTO.getPercent();
 			}
 
-			HSSFRow excelRow = excelSheet.createRow(record++);
+			Row excelRow = excelSheet.createRow(record++);
 			excelRow.createCell(0).setCellValue(name);
 			excelRow.createCell(1).setCellValue(totalNoOfDays);
 			excelRow.createCell(2).setCellValue(noOfDaysPresent);

@@ -37,6 +37,7 @@ import org.brijframework.college.model.Country;
 import org.brijframework.college.model.EditFeeAmount;
 import org.brijframework.college.model.Fine;
 import org.brijframework.college.model.LastDate;
+import org.brijframework.college.model.LoginRole;
 import org.brijframework.college.model.Section;
 import org.brijframework.college.model.SectionWiseFee;
 import org.brijframework.college.model.Session;
@@ -49,13 +50,13 @@ import org.brijframework.college.model.StudentWiseFee;
 import org.brijframework.college.model.Students;
 import org.brijframework.college.model.User;
 import org.brijframework.college.model.UserRole;
-import org.brijframework.college.model.util.PasswordEncoder;
 import org.brijframework.college.models.dto.FeecategoryAmountDTO;
 import org.brijframework.college.models.dto.StudentAdmissionDTO;
 import org.brijframework.college.models.dto.StudentDTO;
 import org.brijframework.college.service.SessionService;
 import org.brijframework.college.service.StudentsAdmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -112,6 +113,8 @@ public class StudentsAdmissionServiceImpl extends
 	FineDao fineDao;
 	@Autowired
 	StudentTransferDao studentTransferDao;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Override
 	public String[] getStudentAdmissionNo() {
@@ -154,14 +157,14 @@ public class StudentsAdmissionServiceImpl extends
 
 		String userid = name + studentDTO.getStudentId() + studentDTO.getSessionId();
 		String num = RandomPasswordUtil.getRandomString();
-		String password = PasswordEncoder.getEcodedPassword(num);
+		String password = passwordEncoder.encode(num);
 		User user = new User();
 		user.setUsername(userid);
 		user.setPassword(password);
 		user.setEnabled(true);
-		UserRole role = new UserRole();
-		role.setRole(roleDao.getUserRoleByName("ROLE_STUDENT"));
-		role.setUser(userDao.create(user));
+		User userD = userDao.create(user);
+		LoginRole loginRole = roleDao.getUserRoleByName("ROLE_STUDENT");
+		UserRole role = new UserRole(loginRole.getId(),userD.getId());
 		userRoleDao.create(role);
 		Students students = new Students();
 		students.setActive(true);
@@ -504,7 +507,6 @@ public class StudentsAdmissionServiceImpl extends
 		students.setGuardianName(studentDTO.getGuardianName());
 		students.setPinCode(studentDTO.getPinCode());
 		if (studentDTO.getReligionName().equals(null)) {
-			String r = "";
 			//students.setReligion(r);
 		} else
 			//.setReligion(studentDTO.getReligionName());
@@ -870,13 +872,11 @@ public class StudentsAdmissionServiceImpl extends
 			Students std = dao.get(integer);
 			if (dao.checkExistStudent(std.getStudentId(),
 					feecategoryAmountDTO.getToSession()) == null) {
-				int sessionId = std.getSession().getSessionId();
-				int classId = std.getClasses().getClassId();
 				String userId = std.getFirstName().trim()
 						+ std.getStudentId()
 						+ feecategoryAmountDTO.getToSession();
 				String num = "123456";
-				String password = PasswordEncoder.getEcodedPassword(num);
+				String password = passwordEncoder.encode(num);
 				User user = new User();
 				user.setUsername(userId);
 				user.setPassword(password);
@@ -885,8 +885,6 @@ public class StudentsAdmissionServiceImpl extends
 				role.setRole(roleDao.getUserRoleByName("ROLE_STUDENT"));
 				role.setUser(userDao.create(user));
 				userRoleDao.create(role);
-				List<Students> stud = dao.getStudentbyclasssession(sessionId,
-						classId);
 				/*
 				 * int lfno = 0;
 				 * 
@@ -1099,7 +1097,7 @@ public class StudentsAdmissionServiceImpl extends
 	@Override
 	public void updatePasswordbyId(Integer changeId, String newpassword) {
 		Students student = dao.get(changeId);
-		String passwords = PasswordEncoder.getEcodedPassword(newpassword);
+		String passwords = passwordEncoder.encode(newpassword);
 		User user = student.getUser();
 		user.setPassword(passwords);
 		student.setPassword(newpassword);
@@ -1466,7 +1464,7 @@ public class StudentsAdmissionServiceImpl extends
 		Session current = sessionDao.findCurrentSession();
 		String userid = name + uniqueNo[2]+ current.getSessionId();
 		String num = RandomPasswordUtil.getRandomString();
-		String password = PasswordEncoder.getEcodedPassword(num);
+		String password = passwordEncoder.encode(num);
 		User user = new User();
 		user.setUsername(userid);
 		user.setPassword(password);

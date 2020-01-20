@@ -4,11 +4,8 @@ import java.util.List;
 
 import org.brijframework.college.dao.LibraryDao;
 import org.brijframework.college.model.Library;
-import org.brijframework.college.model.StudentClasses;
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 

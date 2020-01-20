@@ -1,7 +1,5 @@
 package org.brijframework.college.service;
 
-import java.util.Date;
-
 import org.brijframework.college.model.StudentFine;
 import org.brijframework.college.models.dto.StudentFeeSubmissionDetailsDTO;
 import org.brijframework.college.models.dto.StudentFineDTO;

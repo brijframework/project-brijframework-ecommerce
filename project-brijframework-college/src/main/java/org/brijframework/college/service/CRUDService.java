@@ -8,10 +8,13 @@ import org.brijframework.college.model.PO;
 
 public interface CRUDService<I extends Serializable, T extends PO<I>> {
 
+	@SuppressWarnings("hiding")
 	public <T> List<T> findAll(Class<T> persistentClass);
 
+	@SuppressWarnings("hiding")
 	public <T> List<T> findAllByIsDeletedTrue(Class<T> persistentClass);
 
+	@SuppressWarnings("hiding")
 	public <T> List<T> findAllById(Class<T> persistentClass, I id);
 
 	public T create(T po);

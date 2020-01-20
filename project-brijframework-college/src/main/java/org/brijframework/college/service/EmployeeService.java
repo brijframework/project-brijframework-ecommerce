@@ -7,14 +7,12 @@ import java.util.Map;
 import javax.mail.MessagingException;
 
 import org.brijframework.college.model.Employees;
-import org.brijframework.college.models.dto.EmployeeSalaryDTO;
 import org.brijframework.college.models.dto.EmployeesDTO;
 import org.brijframework.college.models.dto.FeecategoryAmountDTO;
 
 public interface EmployeeService extends CRUDService<Integer, Employees> {
 
-	public int saveEmployeeRegistration(EmployeesDTO employeesDTO)
-			throws Exception, MessagingException;
+	public int saveEmployeeRegistration(EmployeesDTO employeesDTO) throws Exception, MessagingException;
 
 	public List<EmployeesDTO> getEmployeesbyFirstname(String firstName);
 

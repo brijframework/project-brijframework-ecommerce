@@ -1,16 +1,10 @@
 package org.brijframework.college.controller;
 
-import java.security.Principal;
-import java.util.Collection;
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.brijframework.college.common.constant.CommonConstants;
-import org.brijframework.college.common.constant.SessionConstants;
-import org.brijframework.college.model.User;
 import org.brijframework.college.models.dto.FeecategoryAmountDTO;
 import org.brijframework.college.models.dto.StudentClassesDTO;
 import org.brijframework.college.service.AssignClassService;
@@ -19,9 +13,6 @@ import org.brijframework.college.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +34,8 @@ public class HomeController {
 	@RequestMapping(value = { "/admin/home" }, method = RequestMethod.GET)
 	public String adminHome(HttpServletRequest request, ModelMap model,
 			@RequestParam(defaultValue = "0", required = false) String msg) {
+		
+		logger.info("admin home");
 		HttpSession session = request.getSession();
 		session.setAttribute("active", "home");
 		model.addAttribute("FeecategoryAmountDTO", new FeecategoryAmountDTO());

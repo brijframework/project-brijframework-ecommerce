@@ -8,8 +8,8 @@
 
 
 <ul class="menu"
-	style="height: 61px; margin-left: -48px; width: 1096px;">
-	<!-- **********************************Dashboard******************************** -->
+	style="height: 50px; margin-left: 0px; width: 1096px;">
+	<%-- <!-- **********************************Dashboard******************************** -->
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<li><a href="home" class="parent"><span
 				style="height: 40px; width: 130px;">Dashboard</span></a></li>
@@ -289,11 +289,11 @@
 					<li><a href="manage-session.html"><span><font
 								size="3">Manage Sessions</font></span></a></li>
 				</sec:authorize>
-				<%-- <sec:authorize access="hasRole('ROLE_ADMIN')">
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="library.html"><span><font
 								size="3">Manage Library</font></span></a></li>
 				</sec:authorize>
- --%>
+
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="manage-class.html"><span><font
 								size="3">Manage Classes</font></span></a></li>
@@ -487,16 +487,16 @@
 
 			</ul></li>
 	</sec:authorize>
-	<%-- <sec:authorize access="hasRole('ROLE_EMPLOYEE')">
+	<sec:authorize access="hasRole('ROLE_EMPLOYEE')">
 		<li><a href="employeemy-profile" class="parent"><span
 				style="height: 40px; width: 130px;">View Profile</span></a></li>
-	</sec:authorize> --%>
+	</sec:authorize>
 
-	<%-- <sec:authorize access="hasRole('ROLE_EMPLOYEE')">
+	<sec:authorize access="hasRole('ROLE_EMPLOYEE')">
 		<li><a href="change-emp-password-page?id=${EMPLOYER_id}"
 			class="parent"><span style="height: 40px; width: 185px;">Change
 					Password</span></a></li>
-	</sec:authorize> --%>
+	</sec:authorize>
 
 	<!-- **********************************SEARCH******************************** -->
 
@@ -830,7 +830,8 @@
 		<li><a href="${baseurl}logout"><span>Logout</span></a></li>
 	</sec:authorize>
 	<!-- **********************************END ROLL ADMIN******************************** -->
-
+ --%>
+ 
 </ul>
 
 

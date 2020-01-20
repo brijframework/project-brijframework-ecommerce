@@ -30,11 +30,11 @@ import org.brijframework.college.model.Holiday;
 import org.brijframework.college.model.User;
 import org.brijframework.college.model.UserRole;
 import org.brijframework.college.model.util.EmailUtility;
-import org.brijframework.college.model.util.PasswordEncoder;
 import org.brijframework.college.models.dto.EmployeesDTO;
 import org.brijframework.college.models.dto.FeecategoryAmountDTO;
 import org.brijframework.college.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,6 +62,10 @@ public class EmployeesServiceImpl extends
 	LoginRoleDao roleDao;
 	@Autowired
 	UserRoleDao userRoleDao;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
 	@Autowired
 	private EmployeeAttendanceDao employeeAttendanceDao;
 
@@ -78,7 +82,7 @@ public class EmployeesServiceImpl extends
 
 		String userid = name.substring(0, 2) + size;
 		String num = RandomPasswordUtil.getRandomString();
-		String password = PasswordEncoder.getEcodedPassword(num);
+		String password = passwordEncoder.encode(num);
 		User user = new User();
 		user.setUsername(userid);
 		user.setPassword(password);
@@ -391,8 +395,8 @@ public class EmployeesServiceImpl extends
 			result = "wrong";
 		} else {
 			User user = employees.getUser();
-			String encodedPassword = PasswordEncoder
-					.getEcodedPassword(feecategoryAmountDTO.getNewPassword());
+			String encodedPassword = passwordEncoder
+					.encode(feecategoryAmountDTO.getNewPassword());
 			user.setPassword(encodedPassword);
 			userDao.update(user);
 			employees.setPassword(feecategoryAmountDTO.getNewPassword());

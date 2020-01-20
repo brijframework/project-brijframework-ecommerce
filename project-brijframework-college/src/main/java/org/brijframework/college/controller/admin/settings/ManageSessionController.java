@@ -3,12 +3,8 @@ package org.brijframework.college.controller.admin.settings;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.brijframework.college.model.Section;
 import org.brijframework.college.model.Session;
-import org.brijframework.college.model.StudentClasses;
-import org.brijframework.college.models.dto.SectionDTO;
 import org.brijframework.college.models.dto.SessionDTO;
-import org.brijframework.college.service.SectionService;
 import org.brijframework.college.service.SessionService;
 import org.brijframework.college.service.StudentClassesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +23,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 @RequestMapping("/admin/**")
 public class ManageSessionController {
-	@Autowired
-	private StudentClassesService studentClassesService;
+
 	@Autowired
 	StudentClassesService classesService;
-	@Autowired
-	private SectionService sectionService;
+
 	@Autowired
 	private SessionService sessionService;
 

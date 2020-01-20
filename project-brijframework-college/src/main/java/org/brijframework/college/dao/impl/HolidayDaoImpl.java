@@ -26,8 +26,8 @@ public class HolidayDaoImpl extends DAOImpl<Integer, Holiday> implements
 
 	@Override
 	public Holiday getDataForCreateHoliday(Date date) {
-		Date YesterDay = new Date(date.getTime() - (1000 * 60 * 60 * 24));
-		Date tommarow = new Date(date.getTime() + (1000 * 60 * 60 * 24));
+		//Date YesterDay = new Date(date.getTime() - (1000 * 60 * 60 * 24));
+		//Date tommarow = new Date(date.getTime() + (1000 * 60 * 60 * 24));
 		return (Holiday) sessionFactory.getCurrentSession()
 				.createCriteria(Holiday.class)
 				.add(Restrictions.eq("holidayDate",date))

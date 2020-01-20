@@ -66,7 +66,6 @@ public class StudentDocumentController {
 			
 		if (documentDTO.getDocumentFile().getSize() > 0) {
 			MultipartFile files = documentDTO.getDocumentFile();
-			String type = files.getContentType().split("/")[0];
 			String name=documentDTO.getDocumentName()+"("+studentDocumentDTO.getStudentId()+")";
 			/*try{
 			InputStream inputStream = null;

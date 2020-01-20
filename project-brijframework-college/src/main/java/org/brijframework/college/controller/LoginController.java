@@ -10,8 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.brijframework.college.common.constant.CommonConstants;
 import org.brijframework.college.common.constant.SessionConstants;
 import org.brijframework.college.model.User;
-import org.brijframework.college.model.util.PasswordEncoder;
-import org.brijframework.college.service.CountryService;
 import org.brijframework.college.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,9 +29,6 @@ public class LoginController {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private CountryService countryService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginWelcome(ModelMap model) {
@@ -55,7 +50,7 @@ public class LoginController {
 	}
 
 
-	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/home" }, method = RequestMethod.POST)
 	public String login(ModelMap model, HttpServletRequest httpServletRequest, Principal principal) {
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

@@ -1,10 +1,5 @@
 package org.brijframework.college.models.dto;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 public class DepartmentDTO {
 	
 	private Integer id;

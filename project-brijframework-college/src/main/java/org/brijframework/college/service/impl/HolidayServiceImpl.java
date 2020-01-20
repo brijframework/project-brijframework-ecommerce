@@ -122,7 +122,7 @@ public class HolidayServiceImpl extends
 				holidayDTO.setDescription("Sunday");
 				holidayDTO.setHolidayId(0);
 			} else if (integers.contains(calendar.get(Calendar.DAY_OF_MONTH))) {
-				String date1 = calendar.get(calendar.YEAR) + "-" + (month + 1)
+				String date1 = calendar.get(Calendar.YEAR) + "-" + (month + 1)
 						+ "-" + calendar.get(Calendar.DAY_OF_MONTH);
 				Holiday holiday = dao
 						.getDataForCreateHoliday(new SimpleDateFormat(

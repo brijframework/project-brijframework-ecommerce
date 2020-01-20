@@ -2,7 +2,6 @@ package org.brijframework.college.controller.admin.settings;
 
 import java.util.List;
 
-import org.brijframework.college.model.LibraraySettings;
 import org.brijframework.college.model.Session;
 import org.brijframework.college.models.dto.LibraraySettingsDTO;
 import org.brijframework.college.service.LibraraySettingsService;

@@ -17,11 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRParameter;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.util.SimpleFileResolver;
-
 import org.apache.commons.io.FileUtils;
 import org.brijframework.college.model.City;
 import org.brijframework.college.model.Country;
@@ -61,6 +56,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.SimpleFileResolver;
 
 @Controller
 @RequestMapping({ "/admin/**", "/employee/**", "/branch/**" })
@@ -119,6 +119,7 @@ public class StudentController {
 		model.addAttribute("studentAdmissionNum", uniqueNo[0]);
 		model.addAttribute("lfNO", uniqueNo[1]);
 		model.addAttribute("studentId", uniqueNo[2]);
+		model.addAttribute("admissionDate", new SimpleDateFormat("yyyy-MMM-dd").format(new Date()));
 		model.addAttribute("classList", classService.getAllClass());
 		model.addAttribute("sessionList", sessionService.findAllsession());
 		model.addAttribute("current", sessionService.findCurrent());
@@ -316,6 +317,7 @@ public class StudentController {
 		return "showstudentdetails";
 	}
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping(method = RequestMethod.GET, value = "student-profile.html")
 	public ModelAndView studentProfile(ModelAndView modelAndView,
 			@RequestParam Integer id, HttpServletRequest request) {
@@ -726,6 +728,7 @@ public class StudentController {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "getPDFTc", method = RequestMethod.GET)
 	public ModelAndView getTc(@RequestParam Integer id,
 			ModelAndView modelAndView, HttpServletRequest request)
@@ -747,6 +750,7 @@ public class StudentController {
 		return modelAndView;
 	}
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "issue-tc", method = RequestMethod.POST)
 	public ModelAndView issueTC(
 			@ModelAttribute("StudentTransferDTO") StudentTransferDTO studentTransferDTO,
@@ -770,6 +774,7 @@ public class StudentController {
 		modelAndView = new ModelAndView("maharanatc", parameterMap);
 		return modelAndView;
 	}
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "new_issue-tcPDF", method = RequestMethod.GET)
 	public ModelAndView getissueNewTC(
 			@ModelAttribute("id") Integer id,
@@ -794,6 +799,7 @@ public class StudentController {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "new_issue-tc", method = RequestMethod.GET)
 	public ModelAndView issueNewTC(
 			@ModelAttribute("newStudentTransferDTO") NewStudentTransferDTO newStudentTransferDTO,
@@ -882,6 +888,7 @@ public class StudentController {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "PDFstudent-byId", method = RequestMethod.GET)
 	public ModelAndView studentperformaPDF(@RequestParam Integer id,
 			ModelAndView modelAndView, HttpServletRequest request) {

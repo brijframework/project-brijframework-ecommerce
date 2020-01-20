@@ -1263,7 +1263,6 @@ public class StudentFeeSubmissionDetailsServiceImpl
 		Double perClassExpectedAmount = 0.0;
 		Double perStudentFeeAmount = 0.0;
 		Double perSectionExpectedAmount = 0.0;
-		int totalStudent = 0;
 		Session session = sessionDao.findCurrentSession();
 		String currentSession = session.getSessionDuration();
 		String year[] = currentSession.split("-");
@@ -1297,12 +1296,7 @@ public class StudentFeeSubmissionDetailsServiceImpl
 				.getClassWiseFeeAllotementByMonth(monthId)) {
 
 			int noOfStudentsPerClass = 0;
-			for (Students students : admissionDao
-					.getStudentByClassId(classWiseFee.getClasses().getClassId())) {
-				noOfStudentsPerClass++;
-			}
-
-			totalStudent += noOfStudentsPerClass;
+				noOfStudentsPerClass+=admissionDao.getStudentByClassId(classWiseFee.getClasses().getClassId()).size();
 			Double feeAmount = classWiseFee.getFeeAmount();
 			perClassExpectedAmount += feeAmount * noOfStudentsPerClass;
 		}
@@ -1310,12 +1304,10 @@ public class StudentFeeSubmissionDetailsServiceImpl
 		for (SectionWiseFee sectionWiseFee : sectionWiseFeeDao
 				.getSectionWiseFeeAllotmentByMonth(monthId)) {
 			int noOfStudentsPerClass = 0;
-			for (Students students : admissionDao.getStudentsbyClassSectionId(
-					sectionWiseFee.getClasses().getClassId(), sectionWiseFee
-							.getSection().getSectionId(), sectionWiseFee
-							.getSession().getSessionId())) {
-				noOfStudentsPerClass++;
-			}
+				noOfStudentsPerClass+=admissionDao.getStudentsbyClassSectionId(
+						sectionWiseFee.getClasses().getClassId(), sectionWiseFee
+						.getSection().getSectionId(), sectionWiseFee
+						.getSession().getSessionId()).size();
 			Double feeAmount = sectionWiseFee.getFeeAmount();
 			perSectionExpectedAmount += feeAmount * noOfStudentsPerClass;
 
@@ -1390,7 +1382,6 @@ public class StudentFeeSubmissionDetailsServiceImpl
 		Double perClassExpectedAmount = 0.0;
 		Double perStudentFeeAmount = 0.0;
 		Double perSectionExpectedAmount = 0.0;
-		int totalStudent = 0;
 		Session session = sessionDao.get(sessionId);
 		String sessionDuration = session.getSessionDuration();
 		String[] years = sessionDuration.split("-");
@@ -1425,12 +1416,9 @@ public class StudentFeeSubmissionDetailsServiceImpl
 		for (ClassWiseFee classWiseFee : classWiseFeeDao
 				.getClassWiseFeeAllotementBySessionId(sessionId)) {
 			int noOfStudentsPerClass = 0;
-			for (Students students : admissionDao
-					.getStudentByClassId(classWiseFee.getClasses().getClassId())) {
-				noOfStudentsPerClass++;
-			}
+				noOfStudentsPerClass+= admissionDao
+						.getStudentByClassId(classWiseFee.getClasses().getClassId()).size();
 
-			totalStudent += noOfStudentsPerClass;
 			if (classWiseFee.getMonth().getMonthId() == 13) {
 				Double completeYearFee = classWiseFee.getFeeAmount() * 12;
 				perClassExpectedAmount += completeYearFee
@@ -1444,12 +1432,10 @@ public class StudentFeeSubmissionDetailsServiceImpl
 		for (SectionWiseFee sectionWiseFee : sectionWiseFeeDao
 				.getSectionWiseFeeAllotmentBysessionId(sessionId)) {
 			int noOfStudentsPerSection = 0;
-			for (Students students : admissionDao.getStudentsbyClassSectionId(
-					sectionWiseFee.getClasses().getClassId(), sectionWiseFee
-							.getSection().getSectionId(), sectionWiseFee
-							.getSession().getSessionId())) {
-				noOfStudentsPerSection++;
-			}
+				noOfStudentsPerSection+=admissionDao.getStudentsbyClassSectionId(
+						sectionWiseFee.getClasses().getClassId(), sectionWiseFee
+						.getSection().getSectionId(), sectionWiseFee
+						.getSession().getSessionId()).size();
 			if (sectionWiseFee.getMonth().getMonthId() == 13) {
 				Double completeYearFee = sectionWiseFee.getFeeAmount() * 12;
 				perClassExpectedAmount += completeYearFee
@@ -1757,7 +1743,6 @@ public class StudentFeeSubmissionDetailsServiceImpl
 	public Object getStudentFeePaymentAllotment(int sessionId, int classId,
 			int sectionId, int admissionNo, int monthId) throws ParseException {
 		Fine fineEntity = fineDao.getFineByName("Late Fee Fine",sessionId);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		LastDate lastDate = lastDateDao.getLastDatebyMonth(monthId, sessionId);
 		Date dueDate = lastDate.getLastdate();
 		Date currentDate = new Date();
@@ -1865,7 +1850,6 @@ public class StudentFeeSubmissionDetailsServiceImpl
 				.getStudentsbyClassSectionId(classId, sectionId, sessionId);
 		List<StudentDTO> dto = new ArrayList<StudentDTO>();
 		for (Students stu : student) {
-			double feePaidAmount = 0;
 			StudentDTO stud = new StudentDTO();
 
 			StudentFeeSubmissionDetails fee = dao.getDefaulters(sessionId,
@@ -2563,18 +2547,8 @@ public class StudentFeeSubmissionDetailsServiceImpl
 		List<Integer> paidMonthIds = dao.getMonthsId(sessionId,
 				studentAdmissionNo);
 		List<Integer> leCurrentMonth = new ArrayList<Integer>();
-		List<Integer> geCurrentMonth = new ArrayList<Integer>();
 		List<Integer> recieptNos = dao.getallDistinctSlipNo(sessionId,
 				studentAdmissionNo);
-		Calendar calendar = Calendar.getInstance();
-		int monthId = 9;
-		/*if (monthId > 3) {
-			monthId =monthId-3;
-		}
-		 else {
-			 monthId = monthId +9;
-		}
-	*/
 		for (Integer integer : recieptNos) {
 			Integer lastMonthId = dao.getLastMonthIdOfReciept(integer);
 			leCurrentMonth.add(lastMonthId);
@@ -3240,10 +3214,6 @@ public class StudentFeeSubmissionDetailsServiceImpl
 						.get(studentFeeSubmissionDetailsDTO
 								.getStudentAdmissionNo());
 				Fine fineEntity = fineDao.getFineByName("Late Fee Fine", students.getSession().getSessionId());
-				/* lfNo = students.getLfNo(); */
-				// Student detail
-				StudentEntityToDTO studentEntityToDTO = StudentEntityToDTO
-						.getInstance();
 				List<StudentFeeSubmissionDetails> submissionDetails = new ArrayList<StudentFeeSubmissionDetails>();
 
 				for (int monthId : studentFeeSubmissionDetailsDTO.getMonthsId()) {

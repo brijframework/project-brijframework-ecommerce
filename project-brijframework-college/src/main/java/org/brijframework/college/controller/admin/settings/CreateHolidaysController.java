@@ -2,7 +2,6 @@ package org.brijframework.college.controller.admin.settings;
 
 import org.brijframework.college.models.dto.HolidayDTO;
 import org.brijframework.college.service.HolidayService;
-import org.brijframework.college.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,8 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class CreateHolidaysController {
 	@Autowired
 	private HolidayService holidayService;
-	@Autowired
-	private SessionService sessionService;
+
 
 	@RequestMapping(value = "create-holidays.html", method = RequestMethod.GET)
 	public String createHolidats(ModelMap model,

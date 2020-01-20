@@ -4,12 +4,14 @@ package org.brijframework.college.model;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -37,8 +39,8 @@ public class LoginRole extends AbstractPO<Integer> {
 	@Column(name = "DESCRIPTION", length = 100)
 	private String description;
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "role")
-	private UserRole userRole;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+	private List<UserRole> userRoles;
 	
 	
 	public Integer getId() {
@@ -66,13 +68,12 @@ public class LoginRole extends AbstractPO<Integer> {
 		this.description = description;
 	}
 
-	public UserRole getUserRole() {
-		return userRole;
+	public List<UserRole> getUserRoles() {
+		return userRoles;
 	}
 
-	public void setUserRole(UserRole userRole) {
-		this.userRole = userRole;
+	public void setUserRoles(List<UserRole> userRoles) {
+		this.userRoles = userRoles;
 	}
-
 	
 }

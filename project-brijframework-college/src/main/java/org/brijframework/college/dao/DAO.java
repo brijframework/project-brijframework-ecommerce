@@ -13,10 +13,13 @@ public interface DAO<I extends Serializable, T extends PO<I>> {
 	
 	public T create(T po);
 
+	@SuppressWarnings("hiding")
 	public <T> List<T> findAll(Class<T> persistentClass);
 
+	@SuppressWarnings("hiding")
 	public <T> List<T> findAllByIsActiveTrue(Class<T> persistentClass);
 
+	@SuppressWarnings("hiding")
 	public <T> List<T> findAllBySchoolId(Class<T> persistentClass, I schoolId);
 
 	// public T createOrUpdate(T po);

@@ -2,7 +2,6 @@ package org.brijframework.college.service.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import org.brijframework.college.commom.convertor.StudentFineEntityToDTO;
@@ -58,7 +57,6 @@ public class StudentFineServiceImpl extends
 			studentFine.setLastDate(sdf.parse(studentFeeSubmissionDetailsDTO
 					.getLastDate()));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		studentFine.setUpdatedAt(new Date());

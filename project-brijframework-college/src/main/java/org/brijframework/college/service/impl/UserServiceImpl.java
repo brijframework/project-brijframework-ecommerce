@@ -9,11 +9,11 @@ import org.brijframework.college.dao.UserRoleDao;
 import org.brijframework.college.model.LoginRole;
 import org.brijframework.college.model.User;
 import org.brijframework.college.model.UserRole;
-import org.brijframework.college.model.util.PasswordEncoder;
 import org.brijframework.college.models.dto.ChangePasswordDTO;
 import org.brijframework.college.models.dto.UserDTO;
 import org.brijframework.college.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +31,8 @@ public class UserServiceImpl extends CRUDServiceImpl<Integer, User, UserDao>
 	LoginRoleDao roleDao;
 	@Autowired
 	UserRoleDao userRoleDao;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Transactional
 	public User getUserByUserName(String userName) {
@@ -54,7 +56,7 @@ public class UserServiceImpl extends CRUDServiceImpl<Integer, User, UserDao>
 			LoginRole role = roleDao.getUserRoleByName(dto.getRole());
 			User user = new User();
 			user.setEnabled(true);
-			user.setPassword(PasswordEncoder.getEcodedPassword(dto
+			user.setPassword(passwordEncoder.encode(dto
 					.getPassword()));
 			user.setUsername(dto.getUsername());
 			UserRole userRole = new UserRole();
@@ -116,7 +118,7 @@ public class UserServiceImpl extends CRUDServiceImpl<Integer, User, UserDao>
 
 	@Override
 	public void changeAdminPassword(ChangePasswordDTO dto, User user) {
-		user.setPassword(PasswordEncoder.getEcodedPassword(dto.getNewPassword()));
+		user.setPassword(passwordEncoder.encode(dto.getNewPassword()));
 		dao.update(user);
 
 	}
@@ -124,19 +126,19 @@ public class UserServiceImpl extends CRUDServiceImpl<Integer, User, UserDao>
 	@Override
 	public User checkUserByUserName(String userName, String password,
 			int retryCount) {
-		String encodedPassword = PasswordEncoder.getEcodedPassword(password);
+		String encodedPassword = passwordEncoder.encode(password);
 		return dao.getUserByUsername(userName, encodedPassword, retryCount);
 	}
 
 	@Override
 	public User getUserByPassword(String password) {
-		String encodedPassword = PasswordEncoder.getEcodedPassword(password);
+		String encodedPassword = passwordEncoder.encode(password);
 		return dao.getUserByPassword(encodedPassword);
 	}
 
 	@Override
 	public User checkUserByUserName(String userName, String password) {
-		String encodedPassword = PasswordEncoder.getEcodedPassword(password);
+		String encodedPassword = passwordEncoder.encode(password);
 		return dao.checkUserByUserName(userName, encodedPassword);
 	}
 

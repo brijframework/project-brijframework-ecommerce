@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.brijframework.college.models.dto.CommonDTO;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
 import com.lowagie.text.Chunk;
@@ -32,7 +31,6 @@ public class NewAdmissionPDF extends AbstractPdfView {
 	protected void buildPdfDocument(Map<String, Object> model,
 			Document document, PdfWriter writer, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		CommonDTO commonDTO = (CommonDTO) model.get("CommonDTO");
 		String imagePath = request.getSession().getServletContext()
 				.getRealPath("/");
 		imagePath += "/img/nida.jpg";

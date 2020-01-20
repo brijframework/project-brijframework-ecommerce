@@ -29,7 +29,7 @@ div#menu ul {
 	padding: 0;
 	list-style: none;
 	float: left;
-	background: black;
+	background: #007ed7;
 }
 
 div#menu ul.menu {
@@ -48,7 +48,7 @@ div#menu li {
 
 div#menu li:hover>ul {
 	left: 0;
-	background: black;
+	background: #007ed7;
 }
 
 div#menu a {
@@ -61,7 +61,7 @@ div#menu a {
 	text-decoration: none;
 	color: #C9C9C9;
 	font: normal 22px Helvetica, Arial, sans-serif;
-	background: black;
+	background: #007ed7;
 	margin-top: 1px;
 	border-top: 3px solid #111111;
 }

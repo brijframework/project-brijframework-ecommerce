@@ -23,19 +23,21 @@ public abstract class DAOImpl<I extends Serializable, T extends PO<I>>implements
 	private Class<T> poClass;
 	private String entityName;
 
-	@SuppressWarnings("hiding")
+	@SuppressWarnings({ "hiding", "unchecked" })
 	public <T> List<T> findAll(Class<T> persistentClass) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(persistentClass);
 		List<T> res = criteria.list();
 		return res;
 	}
 
+	@SuppressWarnings({ "unchecked", "hiding" })
 	public <T> List<T> findAllByIsActiveTrue(Class<T> persistentClass) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(persistentClass).add(Restrictions.eq("active", true));
 		List<T> res = criteria.list();
 		return res;
 	}
 
+	@SuppressWarnings({ "unchecked", "hiding" })
 	public <T> List<T> findAllBySchoolId(Class<T> persistentClass, I schoolId) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(persistentClass)
 		.add(Restrictions.eq("isDeleted", false))
@@ -147,6 +149,7 @@ public abstract class DAOImpl<I extends Serializable, T extends PO<I>>implements
 			deleteById(id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void afterPropertiesSet() throws Exception {
 		poClass = (Class<T>) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[1];

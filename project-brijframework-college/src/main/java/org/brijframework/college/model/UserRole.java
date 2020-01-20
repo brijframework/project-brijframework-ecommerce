@@ -5,6 +5,7 @@ package org.brijframework.college.model;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,13 +26,17 @@ public class UserRole extends AbstractPO<UserRoleId> {
 	@JoinColumn(name = "USER_ID", insertable = false,  updatable = false)
 	private User user;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "ROLE_ID", insertable = false,  updatable = false)
 	private LoginRole role;
 
-	public UserRole() {
+	public UserRole(int roleId, int userId) {
+		this.setId(new UserRoleId(userId, roleId));
 	}
 
+	public UserRole() {
+	}
+	
 	public UserRole(UserRoleId id) {
 		this.id = id;
 	}

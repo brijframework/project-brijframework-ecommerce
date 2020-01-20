@@ -26,7 +26,7 @@ public class Pdffeedefaulterlist
 	extends AbstractPdfView {
 		@SuppressWarnings("unchecked")
 		@Override
-		protected void buildPdfDocument(Map model, Document document,
+		protected void buildPdfDocument(Map<String, Object> model, Document document,
 				PdfWriter writer, HttpServletRequest request,
 				HttpServletResponse response) throws Exception {
 		

@@ -59,7 +59,7 @@ body {
 /*~Smartphones (portrait and landscape)~*/
 @media only screen and (min-device-width : 320px) and (max-device-width
 	: 480px) {
-	.data,.data-fluid {
+	.data, .data-fluid {
 		overflow: hidden;
 		overflow-x: scroll;
 	}
@@ -120,7 +120,7 @@ body {
 	.body .navigation .button .name {
 		font-size: 10px;
 	}
-	.data,.data-fluid {
+	.data, .data-fluid {
 		overflow: hidden;
 		overflow-x: scroll;
 	}
@@ -187,7 +187,7 @@ body {
 	.sidebar .close {
 		display: block;
 	}
-	.sidebar .top,.sidebar .widget {
+	.sidebar .top, .sidebar .widget {
 		display: none;
 	}
 	.sidebar .navigation {
@@ -198,8 +198,8 @@ body {
 		padding: 3px 10px;
 		width: 100%;
 	}
-	.sidebar .navigation>li>a,.sidebar .navigation li ul,.sidebar .navigation li ul li,.sidebar .navigation li ul li a
-		{
+	.sidebar .navigation>li>a, .sidebar .navigation li ul, .sidebar .navigation li ul li,
+		.sidebar .navigation li ul li a {
 		width: 100%;
 	}
 	.sidebar .navigation li ul {

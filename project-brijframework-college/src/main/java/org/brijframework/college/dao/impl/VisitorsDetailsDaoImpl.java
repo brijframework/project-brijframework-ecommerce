@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.brijframework.college.dao.VisitorsDetailsDao;
 import org.brijframework.college.model.VisitorsDetails;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 

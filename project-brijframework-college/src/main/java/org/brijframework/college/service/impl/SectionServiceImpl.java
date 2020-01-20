@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.brijframework.college.dao.SectionDao;
 import org.brijframework.college.model.Section;
-import org.brijframework.college.model.StudentClasses;
 import org.brijframework.college.models.dto.SectionDTO;
 import org.brijframework.college.service.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;

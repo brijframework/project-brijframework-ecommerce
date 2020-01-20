@@ -32,9 +32,6 @@ public class NewPDFAdmission extends AbstractPdfView {
 				.getRealPath("/");
 		imagePath += "/img/nida.jpg";
 		//imagePath += "/img/nida.jpg";
-		String imagePath1 = request.getSession().getServletContext()
-				.getRealPath("/");
-		imagePath1 += "/img/studentImages/" + studentDTO.getImageName();
 		document.open();
 		PdfPTable tables1 = new PdfPTable(1);
 		tables1.setWidthPercentage(100);

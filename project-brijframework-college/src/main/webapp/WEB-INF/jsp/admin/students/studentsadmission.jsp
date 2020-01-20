@@ -282,7 +282,7 @@
 							</div>
 							<div class="span9">
 								<input type="text" name="dateOfBirth" id="dateOfBirth"
-									readonly="readonly" class="validate[required]">
+									class="validate[required]">
 							</div>
 						</div>
 						<div class="row-form">
@@ -334,7 +334,7 @@
 							</div>
 							<div class="span8">
 								<input type="text" name="admissionDate" id="admissionDate"
-									readonly="readonly" class="validate[required]">
+									readonly="readonly" class="validate[required]" value="${admissionDate}" >
 							</div>
 						</div>
 						<div class="row-form">
