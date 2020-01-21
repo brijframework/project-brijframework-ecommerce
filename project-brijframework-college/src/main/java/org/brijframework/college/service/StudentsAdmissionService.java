@@ -20,7 +20,7 @@ public interface StudentsAdmissionService extends CRUDService<Integer , Students
 
 	public StudentDTO findInActiveStudentDetails(Integer id);
 
-	void registerStudentDetails(StudentDTO studentDTO) throws ParseException;
+	Integer registerStudentDetails(StudentDTO studentDTO) throws ParseException;
 
 	List<StudentDTO> getStudentListById(int courseId, int branchId, int batchId);
 

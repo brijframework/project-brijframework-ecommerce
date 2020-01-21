@@ -150,7 +150,7 @@ public class StudentsAdmissionServiceImpl extends
 	}
 
 	@Override
-	public void registerStudentDetails(StudentDTO studentDTO)
+	public Integer registerStudentDetails(StudentDTO studentDTO)
 			throws ParseException {
 		String name = studentDTO.getFirstName().trim();
 		Integer admno = studentDTO.getAdmissionNo();
@@ -172,7 +172,6 @@ public class StudentsAdmissionServiceImpl extends
 		students.setLfNo(Integer.parseInt(studentDTO.getLfno()));
 		students.setStudentAdmissionNo(getUniqueIdNo());
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MMM-dd");
 		if (studentDTO.getAdmissionDate() != null)
 			students.setAdmissionDate(dateFormat.parse(studentDTO
 					.getAdmissionDate()));
@@ -182,7 +181,7 @@ public class StudentsAdmissionServiceImpl extends
 		students.setSrno(studentDTO.getSrno());
 		students.setMiddleName(studentDTO.getMiddleName());
 		students.setLastName(studentDTO.getLastName());
-		students.setDateOfBirth(df.parse(studentDTO.getDateOfBirth()));
+		students.setDateOfBirth(dateFormat.parse(studentDTO.getDateOfBirth()));
 		students.setAddressLine1(studentDTO.getAddressLine1());
 		students.setClasses(classDao.get(studentDTO.getClassId()));
 		students.setSession(sessionDao.get(studentDTO.getSessionId()));
@@ -258,7 +257,7 @@ public class StudentsAdmissionServiceImpl extends
 		}
 
 		dao.create(students);
-
+		return students.getStudentId();
 	}
 
 	@Override
@@ -319,6 +318,7 @@ public class StudentsAdmissionServiceImpl extends
 	public StudentDTO findStudentDetails(Integer id) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MMM-dd");
+		System.out.println("id="+id);
 		Students students = dao.getActiveStudentById(id);
 		StudentDTO studentDTO = new StudentDTO();
 		studentDTO.setAdmissionNo(id);

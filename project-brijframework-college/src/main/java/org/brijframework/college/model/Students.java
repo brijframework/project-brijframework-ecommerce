@@ -131,6 +131,7 @@ public class Students extends AbstractPO<Integer> {
 		return studentAdmissionNo;
 	}
 	
+	
 	public String getSrno() {
 		return srno;
 	}

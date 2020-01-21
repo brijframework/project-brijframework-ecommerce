@@ -119,7 +119,7 @@ public class StudentController {
 		model.addAttribute("studentAdmissionNum", uniqueNo[0]);
 		model.addAttribute("lfNO", uniqueNo[1]);
 		model.addAttribute("studentId", uniqueNo[2]);
-		model.addAttribute("admissionDate", new SimpleDateFormat("yyyy-MMM-dd").format(new Date()));
+		model.addAttribute("admissionDate", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		model.addAttribute("classList", classService.getAllClass());
 		model.addAttribute("sessionList", sessionService.findAllsession());
 		model.addAttribute("current", sessionService.findCurrent());
@@ -141,7 +141,6 @@ public class StudentController {
 			@ModelAttribute("StudentDetails") StudentDTO studentDTO,
 			ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ParseException {
-		int admissionNo = admissionService.getUniqueIdNo();
 		if (studentDTO.getPhoto().getSize() > 0) {
 			MultipartFile file = studentDTO.getPhoto();
 			String type = file.getContentType().split("/")[0];
@@ -226,7 +225,7 @@ public class StudentController {
 				inputStream.close();
 			}
 		}
-		admissionService.registerStudentDetails(studentDTO);
+		Integer studentId = admissionService.registerStudentDetails(studentDTO);
 		if (studentDTO.getDocumentList() != null) {
 			for (StudentDocumentDTO documentDTO : studentDTO.getDocumentList()) {
 
@@ -258,7 +257,7 @@ public class StudentController {
 
 		}
 
-		response.sendRedirect("show-student-details?id=" + admissionNo + "");
+		response.sendRedirect("show-student-details?id=" + studentId + "");
 	}
 
 	@RequestMapping(value = "/student-details", method = RequestMethod.GET)
