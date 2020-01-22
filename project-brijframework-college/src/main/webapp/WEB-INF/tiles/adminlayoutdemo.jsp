@@ -76,9 +76,9 @@
 	src='${js_url}/plugins/shbrush/shBrushJScript.js'></script>
 <script type='text/javascript'
 	src='${js_url}/plugins/shbrush/shBrushCss.js'></script>
-<script src="${stylejs_url}/js/jquery.autosize.js"
+<script src="${js_url}/jquery.autosize.js"
 	type="text/javascript"></script>
-<script src="${stylejs_url}/js/jquery.autosize.min.js"
+<script src="${js_url}/jquery.autosize.min.js"
 	type="text/javascript"></script>
 <script type='text/javascript' src='${js_url}/plugins.js'></script>
 <script type='text/javascript' src='${js_url}/charts.js'></script>

@@ -14,7 +14,7 @@ public interface GatePassService extends CRUDService<Integer, GatePass> {
 
 	GatePassDTO getPDFgatePass(Integer id);
 
-	List<GatePassDTO> findPreviousDetailsbyId(String id);
+	List<GatePassDTO> findPreviousDetailsbyId(Integer id);
 
 	List<GatePassDTO> findDateWiseDetails(String dates) throws ParseException;
 

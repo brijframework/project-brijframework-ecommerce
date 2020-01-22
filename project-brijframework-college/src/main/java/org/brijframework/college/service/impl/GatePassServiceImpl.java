@@ -72,7 +72,7 @@ GatePassService {
 }
 
 	@Override
-	public List<GatePassDTO> findPreviousDetailsbyId(String id) {
+	public List<GatePassDTO> findPreviousDetailsbyId(Integer id) {
 		List<GatePass> lists=dao.findPreviousDetailsById(id);
 		List<GatePassDTO> listdto=new ArrayList<GatePassDTO>();
 		SimpleDateFormat df=new SimpleDateFormat("dd-MM-yyyy");
@@ -94,6 +94,8 @@ GatePassService {
 	public List<GatePassDTO> findDateWiseDetails(String dates) throws ParseException {
 		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
 		List<GatePass> lists=dao.findDateWiseDetails(df.parse(dates));
+		
+		System.out.println("lists="+lists);
 		List<GatePassDTO> listdto=new ArrayList<GatePassDTO>();
 	
 		SimpleDateFormat tf=new SimpleDateFormat("h:mm a");

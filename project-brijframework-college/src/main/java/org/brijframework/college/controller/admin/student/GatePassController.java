@@ -1,11 +1,13 @@
 package org.brijframework.college.controller.admin.student;
 
+import java.io.ByteArrayInputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.brijframework.college.models.dto.GatePassDTO;
@@ -15,7 +17,12 @@ import org.brijframework.college.service.SectionService;
 import org.brijframework.college.service.SessionService;
 import org.brijframework.college.service.StudentClassesService;
 import org.brijframework.college.service.StudentsAdmissionService;
+import org.brijframework.college.util.GeneratePdfReport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -77,17 +84,34 @@ public class GatePassController {
 		return mapper.writeValueAsString(student);
 	}
 	@RequestMapping(value = "save-gatePass", method = RequestMethod.POST)
-	public String feePaymentSave(
-			HttpServletRequest request,
+	public ResponseEntity<InputStreamResource> feePaymentSave(
+			HttpServletRequest request,HttpServletResponse response,
 			ModelMap model,
 			@ModelAttribute("gatePassDTO") GatePassDTO gatePassDTO) {
-		model.addAttribute("GatePassDTO", gatePassService.generateGatePass(gatePassDTO));
-		model.addAttribute("Student" ,admissionService.findStudentDetails(gatePassDTO.getAdmissionNo()));
-		return "pdfgatepass";
+		System.out.println("===============================Enter save-gatePass=====================================");
+		/*
+		 * try { model.addAttribute("GatePassDTO",
+		 * gatePassService.generateGatePass(gatePassDTO)); model.addAttribute("Student"
+		 * ,admissionService.findStudentDetails(gatePassDTO.getAdmissionNo())); }catch
+		 * (Exception e) { e.printStackTrace(); } System.out.println(model);
+		 */
+		System.out.println("===============================Forword save-gatePass=====================================");
+		ByteArrayInputStream bis = GeneratePdfReport.citiesReport(request,admissionService.findStudentDetails(gatePassDTO.getAdmissionNo()),gatePassService.generateGatePass(gatePassDTO));
+
+		HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=citiesreport.pdf");
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
+
 	}
+	
 	@RequestMapping(value = "/get-previous-gatePass", method = RequestMethod.POST)
 	public @ResponseBody
-	String getPrevious(@RequestParam("id") String id,
+	String getPrevious(@RequestParam("id") Integer id,
 			HttpServletRequest request) throws JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
 		List<GatePassDTO> list=gatePassService.findPreviousDetailsbyId(id);

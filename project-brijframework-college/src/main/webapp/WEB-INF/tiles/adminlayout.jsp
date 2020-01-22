@@ -44,6 +44,7 @@
 </style>
 
 <link type="text/css" href="${css_url}/menu.css" rel="stylesheet" />
+<script src='${js_url}/fullcalendar/jquery.min.js'></script>
 <%--  <script type="text/javascript" src="${js_url}/jquery.js"></script> --%>
 <script type="text/javascript" src="${js_url}/menu.js"></script>
 
@@ -52,7 +53,7 @@
 <%-- <script type='text/javascript'
 	src='${js_url}/plugins/jquery/jquery-1.9.1.min.js'></script> --%>
 
-<script src='${js_url}/fullcalendar/jquery.min.js'></script>
+
 
 <link rel="stylesheet" href="${js_url}/fullcalendar/fullcalendar.css">
 <script type='text/javascript'
@@ -107,9 +108,9 @@
 	src='${js_url}/plugins/shbrush/shBrushJScript.js'></script>
 <script type='text/javascript'
 	src='${js_url}/plugins/shbrush/shBrushCss.js'></script>
-<script src="${stylejs_url}/js/jquery.autosize.js"
+<script src="${js_url}/jquery.autosize.js"
 	type="text/javascript"></script>
-<script src="${stylejs_url}/js/jquery.autosize.min.js"
+<script src="${js_url}/jquery.autosize.min.js"
 	type="text/javascript"></script>
 
 <script type='text/javascript' src='${js_url}/plugins.js'></script>

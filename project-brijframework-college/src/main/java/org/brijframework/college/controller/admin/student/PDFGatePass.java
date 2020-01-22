@@ -28,7 +28,9 @@ public class PDFGatePass extends AbstractPdfView {
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model,
 			Document document, PdfWriter writer, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+			HttpServletResponse response) {
+		System.out.println("=======================PDFGatePass========================");
+		try {
 		StudentDTO student = (StudentDTO) model.get("Student");
 		GatePassDTO gate = (GatePassDTO) model.get("GatePassDTO");
 		String imagePath = request.getSession().getServletContext()
@@ -201,5 +203,8 @@ public class PDFGatePass extends AbstractPdfView {
 		
 		document.add(tables1);
 		document.addTitle("Gate Pass");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -5,6 +5,7 @@
 <spring:url value="/img" var="img_url" />
 <spring:url value="/css" var="css_url" />
 <spring:url value="/js" var="js_url" />
+<script src="${js_url}/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="${js_url }/menu.js"></script>
 <link rel="stylesheet" type="text/css" href="${css_url}/setting.css"/>  
 <script>

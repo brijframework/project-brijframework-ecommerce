@@ -5,12 +5,10 @@
 
 <html>
 <head>
-<spring:url value="/style" var="style_url"/>
-<link href="${style_url}/theme/css/style.css" rel="stylesheet" type="text/css"   media="screen" />
+<spring:url value="/css" var="css_url"/>
+<link href="${css_url}/theme/css/style.css" rel="stylesheet" type="text/css"   media="screen" />
 <spring:url value="/style/js" var="js_url"/>
-<script src="${js_url}/jquery-1.9.1.js" type="text/javascript"></script>
-<script src="${js_url}/jquery-2.0.2.min.js" type="text/javascript"></script>
-<script src="${js_url}/jquery-2.0.2.js" type="text/javascript"></script>
+<script src="${js_url}/jquery.min.js" type="text/javascript"></script>
 <script src="${js_url}/jquery.autosize.js" type="text/javascript"></script>
 <script src="${js_url}/jquery.autosize.min.js" type="text/javascript"></script>
 <script type="text/javascript">

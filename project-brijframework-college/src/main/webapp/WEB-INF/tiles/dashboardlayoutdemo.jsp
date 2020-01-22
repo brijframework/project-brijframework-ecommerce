@@ -9,14 +9,14 @@
 <spring:url value="/img" var="img" />
 <spring:url value="/style" var="stylejs_url" />
 <link
-	href="${css_url}/style/theme/scripts/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css"
+	href="${css_url}/plupload/jquery.plupload.queue.css"
 	rel="stylesheet" type="text/css" />
 <link href="${css_url}/stylesheets.css" rel="stylesheet" type="text/css" />
 <script type='text/javascript'
 	src='${js_url}/plugins/jquery/jquery-1.9.1.min.js'></script>
 <script type='text/javascript'
 	src='${js_url}/plugins/jquery/jquery-ui-1.10.1.custom.min.js'></script>
-<script type='text/javascript' src='${js_url}/lib/jquery.min.js'></script>
+<script type='text/javascript' src='${js_url}/jquery.min.js'></script>
 <script type='text/javascript'
 	src='${js_url}/lib/jquery-ui.custom.min.js'></script>
 <script type='text/javascript'
@@ -57,9 +57,9 @@
 	src='${js_url}/plugins/shbrush/shBrushJScript.js'></script>
 <script type='text/javascript'
 	src='${js_url}/plugins/shbrush/shBrushCss.js'></script>
-<script src="${stylejs_url}/js/jquery.autosize.js"
+<script src="${js_url}/jquery.autosize.js"
 	type="text/javascript"></script>
-<script src="${stylejs_url}/js/jquery.autosize.min.js"
+<script src="${js_url}/jquery.autosize.min.js"
 	type="text/javascript"></script>
 <script type='text/javascript' src='${js_url}/plugins.js'></script>
 <script type='text/javascript' src='${js_url}/charts.js'></script>

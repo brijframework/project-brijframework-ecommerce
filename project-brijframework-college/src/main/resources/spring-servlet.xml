@@ -21,22 +21,26 @@
 	<mvc:resources mapping="/js/**" location="/resources/js/" />
 	<mvc:annotation-driven />
 
+	<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="order" value="1" />
+		<property name="basename" value="views" />
+	</bean>
+
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
-		<property name="location"  value="classpath:spring-pdf-views.xml"/>
-		<property name="order" value="2" />
+		<property name="location"
+			value="classpath:spring-pdf-views.xml" />
+		<property name="order" value="1" />
 	</bean>
 
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
 		<property name="location" value="classpath:jasper-views.xml" />
 		<property name="order" value="2" />
 	</bean>
+
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
-		<property name="location" value="classpath:spring-pdf-views.xml" />
-		<property name="order" value="2" />
-	</bean>
-	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
-		<property name="location" value="classpath:spring-excel-views.xml" />
-		<property name="order" value="2" />
+		<property name="location"
+			value="classpath:spring-excel-views.xml" />
+		<property name="order" value="3" />
 	</bean>
 
 </beans>

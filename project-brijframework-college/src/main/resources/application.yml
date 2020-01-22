@@ -1,0 +1,17 @@
+#server.error.whitelabel.enabled=false
+#spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+#logging.level.org.springframework=TRACE
+
+spring:
+  main:
+    banner-mode: "off"
+
+logging:
+  level:
+    org:
+      springframework: ERROR
+      
+logging.level.org.hibernate.type.descriptor.sql: trace
+logging.level.org.hibernate.SQL: debug
+spring.jpa.show-sql: true
+spring.jpa.properties.hibernate.format_sql: true

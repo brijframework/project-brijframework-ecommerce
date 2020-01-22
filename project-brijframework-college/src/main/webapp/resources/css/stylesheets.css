@@ -30,9 +30,7 @@
 
 @import "shbrush/shThemeDefault.css";
 
-@import
-	"../js/plugins/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css"
-	;
+@import "plupload/jquery.plupload.queue.css";
 
 @import "icons.css";
 
