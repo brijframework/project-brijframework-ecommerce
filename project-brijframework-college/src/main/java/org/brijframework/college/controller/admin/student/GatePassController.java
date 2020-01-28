@@ -1,6 +1,5 @@
 package org.brijframework.college.controller.admin.student;
 
-import java.io.ByteArrayInputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,12 +16,7 @@ import org.brijframework.college.service.SectionService;
 import org.brijframework.college.service.SessionService;
 import org.brijframework.college.service.StudentClassesService;
 import org.brijframework.college.service.StudentsAdmissionService;
-import org.brijframework.college.util.GeneratePdfReport;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -31,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -84,7 +79,7 @@ public class GatePassController {
 		return mapper.writeValueAsString(student);
 	}
 	@RequestMapping(value = "save-gatePass", method = RequestMethod.POST)
-	public ResponseEntity<InputStreamResource> feePaymentSave(
+	public ModelAndView feePaymentSave(
 			HttpServletRequest request,HttpServletResponse response,
 			ModelMap model,
 			@ModelAttribute("gatePassDTO") GatePassDTO gatePassDTO) {
@@ -95,17 +90,29 @@ public class GatePassController {
 		 * ,admissionService.findStudentDetails(gatePassDTO.getAdmissionNo())); }catch
 		 * (Exception e) { e.printStackTrace(); } System.out.println(model);
 		 */
+		/*
+		 * System.out.
+		 * println("===============================Forword save-gatePass====================================="
+		 * ); ByteArrayInputStream bis =
+		 * GeneratePdfReport.citiesReport(request,admissionService.findStudentDetails(
+		 * gatePassDTO.getAdmissionNo()),gatePassService.generateGatePass(gatePassDTO));
+		 * 
+		 * HttpHeaders headers = new HttpHeaders(); headers.add("Content-Disposition",
+		 * "inline; filename=citiesreport.pdf");
+		 * 
+		 * return ResponseEntity .ok() .headers(headers)
+		 * .contentType(MediaType.APPLICATION_PDF) .body(new InputStreamResource(bis));
+		 */
+		System.out.println("===============================Enter save-gatePass=====================================");
+		try {
+			model.addAttribute("GatePassDTO", gatePassService.generateGatePass(gatePassDTO));
+			model.addAttribute("Student" ,admissionService.findStudentDetails(gatePassDTO.getAdmissionNo()));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(model);
 		System.out.println("===============================Forword save-gatePass=====================================");
-		ByteArrayInputStream bis = GeneratePdfReport.citiesReport(request,admissionService.findStudentDetails(gatePassDTO.getAdmissionNo()),gatePassService.generateGatePass(gatePassDTO));
-
-		HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "inline; filename=citiesreport.pdf");
-
-        return ResponseEntity
-                .ok()
-                .headers(headers)
-                .contentType(MediaType.APPLICATION_PDF)
-                .body(new InputStreamResource(bis));
+		return new ModelAndView("pdfgatepass",model);
 
 	}
 	

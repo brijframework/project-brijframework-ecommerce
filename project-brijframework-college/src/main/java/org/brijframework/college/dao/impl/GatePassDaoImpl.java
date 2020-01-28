@@ -40,7 +40,7 @@ public class GatePassDaoImpl extends DAOImpl<Integer, GatePass> implements
 		 System.out.println(ed);
 		return sessionFactory.getCurrentSession()
 				.createCriteria(GatePass.class)
-				.add(Restrictions.ge("leavingDate",st)).add(Restrictions.le("leavingDate",ed)).list();
+				.add(Restrictions.ge("leavingDate",ed)).add(Restrictions.le("leavingDate",st)).list();
 	}
 
 }
