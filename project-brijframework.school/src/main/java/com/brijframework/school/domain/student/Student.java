@@ -13,11 +13,11 @@ import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
 import com.brijframework.school.domain.UserLogin;
-import com.brijframework.school.domain.account.StudentFeeSubmissionDetails;
 import com.brijframework.school.domain.comman.ImageDetail;
-import com.brijframework.school.domain.setting.School;
-import com.brijframework.school.domain.setting.Section;
-import com.brijframework.school.domain.setting.Session;
+import com.brijframework.school.domain.setting.ClassDetail;
+import com.brijframework.school.domain.setting.SchoolDetail;
+import com.brijframework.school.domain.setting.SectionDetail;
+import com.brijframework.school.domain.setting.SessionDetail;
 
 @SuppressWarnings("serial")
 @Entity
@@ -35,19 +35,23 @@ public class Student extends EntityObject<Integer> {
 	
 	@ManyToOne
 	@JoinColumn(name = "SCHOOL_ID")
-	private School school;
+	private SchoolDetail schoolDetail;
+	
+	@ManyToOne
+	@JoinColumn(name = "STUDENT_DETAIL")
+	private StudentDetail studentDetail;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SESSION_ID")
-	private Session session;
+	private SessionDetail sessionDetail;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SECTION_ID")
-	private Section section;
+	private SectionDetail sectionDetail;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "CLASS_ID")
-	private StudentClass studentClass;
+	private ClassDetail classDetail;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CATEGORY_ID")
@@ -57,18 +61,11 @@ public class Student extends EntityObject<Integer> {
 	@OneToOne
 	private ImageDetail imageDetail;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "students")
-	private List<StudentAttendance> studentAttendances;
-	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "USER_ID")
 	private UserLogin userLogin;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="admitclass_id")
-	private StudentClass admitClassId;
-	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "students")
-	private List<StudentFeeSubmissionDetails> studentFeeSubmissionDetailsList;
-
+	private List<StudentAttendance> attendances;
+	
 }

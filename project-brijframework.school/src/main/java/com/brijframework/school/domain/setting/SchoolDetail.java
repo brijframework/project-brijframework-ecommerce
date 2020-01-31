@@ -11,12 +11,12 @@ import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
 import com.brijframework.school.domain.location.Address;
-import com.brijframework.school.domain.student.Student;
+import com.brijframework.school.domain.student.StudentDetail;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "SCHOOL")
-public class School extends EntityObject<Long> {
+@Table(name = "SCHOOL_DETAIL")
+public class SchoolDetail extends EntityObject<Long> {
 	
 	@Column(name = "NAME")
 	private String name;
@@ -28,13 +28,13 @@ public class School extends EntityObject<Long> {
 	@JoinColumn(name = "ADDRESS_ID")
 	private Address address;
 	
-	@OneToMany(mappedBy = "school")
+	@OneToMany(mappedBy = "schoolDetail")
 	private List<SchoolContact> contactList;
 	
-	@OneToMany(mappedBy = "school")
-	private List<SchoolClass> classList;
+	@OneToMany(mappedBy = "schoolDetail")
+	private List<ClassDetail> classDetailList;
 	
-	@OneToMany(mappedBy = "school")
-	private List<Student> studentList;
+	@OneToMany(mappedBy = "schoolDetail")
+	private List<StudentDetail> studentDetailList;
 	
 }

@@ -15,29 +15,29 @@ import com.brijframework.school.domain.EntityObject;
 @Table(name = "COUNTRY")
 public class Country extends EntityObject<Long> {
 
-	@Column(name = "COUNTRY_NAME")
-	private String countryName;
+	@Column(name = "NAME")
+	private String name;
 	
-	@Column(name = "COUNTRY_CODE")
-	private String countryCode;
+	@Column(name = "CODE")
+	private String code;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
 	private List<State> states;
-	
-	public String getCountryName() {
-		return countryName;
+
+	public String getName() {
+		return name;
 	}
 
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCountryCode() {
-		return countryCode;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public List<State> getStates() {
@@ -47,5 +47,6 @@ public class Country extends EntityObject<Long> {
 	public void setStates(List<State> states) {
 		this.states = states;
 	}
-
+	
+	
 }

@@ -18,30 +18,30 @@ public class City extends EntityObject<Long> {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "CITY_NAME")
-	private String cityName;
+	@Column(name = "NAME")
+	private String name;
 
-	@Column(name = "CITY_CODE")
-	private String cityCode;
+	@Column(name = "CODE")
+	private String code;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "STATE_ID")
 	private State state;
 
-	public String getCityCode() {
-		return cityCode;
+	public String getName() {
+		return name;
 	}
 
-	public void setCityCode(String cityCode) {
-		this.cityCode = cityCode;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCityName() {
-		return cityName;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public State getState() {

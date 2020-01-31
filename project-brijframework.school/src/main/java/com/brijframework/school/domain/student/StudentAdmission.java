@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -12,12 +11,15 @@ import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
 import com.brijframework.school.domain.account.Receipt;
-import com.brijframework.school.domain.setting.Section;
+import com.brijframework.school.domain.comman.ImageDetail;
+import com.brijframework.school.domain.setting.ClassDetail;
+import com.brijframework.school.domain.setting.SchoolDetail;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "STUDENT_ADMISSION")
 public class StudentAdmission extends EntityObject<Long> {
+	
 	@Column(name = "admission_no")
 	private String admissionNo;
 	
@@ -30,37 +32,24 @@ public class StudentAdmission extends EntityObject<Long> {
 	@Column(name = "reg_no")
 	private String regNo;
 
-	@Column(name = "image_name")
-	private String imageName;
+	@Column(name = "IMAGE_DETAIL_ID")
+	private ImageDetail imageDetail;
 	
 	@Column(name = "written_or_interview_date")
 	private Date writtenOrIntervieDate;
 	
-	@Column(name = "admit_in_class")
-	private String admitInClass;
+	@Column(name="SCHOOL_DETAIL_ID")
+	private SchoolDetail schoolDetail;
 	
-	@Column(name = "principal_or_director_name")
-	private String principalOrDirectorName;
-	
-	@Column(name = "fee_receipt_date")
-	private Date feeReceiptDate;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "section_id")
-	private Section section;
-	
-	@Column(name="school_phone")
-	private String school;
-	
-	@Column(name="transfer_status")
-	private String transferStatus;
+	@Column(name="STATUS")
+	private String status;
 	
 	@OneToOne
-	@JoinColumn(name = "fee_receipt_no")
-	private Receipt receipt;
+	@JoinColumn(name = "FEE_RECEIPT_NO")
+	private Receipt feeReceipt;
 	
 	@ManyToOne
-	@JoinColumn(name = "class_id")
-	private StudentClass classes;
+	@JoinColumn(name = "CLASS_DETAIL_ID")
+	private ClassDetail classDetail;
 	
 }

@@ -18,7 +18,7 @@ public class StudentCategory extends EntityObject<Long> {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "religion")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	private List<Student> students;
 
 	public String getName() {

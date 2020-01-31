@@ -27,4 +27,6 @@ public interface CityService {
 
 	City getCity(String name, String country);
 
+	City saveCity(City city);
+
 }

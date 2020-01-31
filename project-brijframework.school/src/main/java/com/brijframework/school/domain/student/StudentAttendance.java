@@ -10,8 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
-import com.brijframework.school.domain.employee.Employees;
-import com.brijframework.school.domain.setting.Section;
+import com.brijframework.school.domain.employee.Employee;
+import com.brijframework.school.domain.setting.ClassDetail;
+import com.brijframework.school.domain.setting.SectionDetail;
 
 @SuppressWarnings("serial")
 @Entity
@@ -24,15 +25,15 @@ public class StudentAttendance extends EntityObject<Long> {
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "class_id")
-	private StudentClass studentClasses;
+	private ClassDetail classDetail;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "section_id")
-	private Section section;
+	private SectionDetail sectionDetail;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "employee_id")
-	private Employees employees;
+	private Employee employee;
 	
 	@Column(name = "attendance_status")
 	private String attendanceStatus;
@@ -40,52 +41,5 @@ public class StudentAttendance extends EntityObject<Long> {
 	@Column(name = "date_of_attendance")
 	private Date datOfAttendance;
 
-	public Employees getEmployees() {
-		return employees;
-	}
-
-	public void setEmployees(Employees employees) {
-		this.employees = employees;
-	}
-
-	public Student getStudents() {
-		return students;
-	}
-
-	public void setStudents(Student students) {
-		this.students = students;
-	}
-
-	public StudentClass getStudentClasses() {
-		return studentClasses;
-	}
-
-	public void setStudentClasses(StudentClass studentClasses) {
-		this.studentClasses = studentClasses;
-	}
-
-	public Section getSection() {
-		return section;
-	}
-
-	public void setSection(Section section) {
-		this.section = section;
-	}
-
-	public String getAttendanceStatus() {
-		return attendanceStatus;
-	}
-
-	public void setAttendanceStatus(String attendanceStatus) {
-		this.attendanceStatus = attendanceStatus;
-	}
-
-	public Date getDatOfAttendance() {
-		return datOfAttendance;
-	}
-
-	public void setDatOfAttendance(Date datOfAttendance) {
-		this.datOfAttendance = datOfAttendance;
-	}
 
 }

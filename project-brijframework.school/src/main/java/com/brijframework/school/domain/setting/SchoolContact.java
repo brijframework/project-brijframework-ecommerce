@@ -20,8 +20,8 @@ public class SchoolContact extends EntityObject<Long> {
 	private String value;
 
 	@ManyToOne
-	@JoinColumn(name = "SCHOOL_ID")
-	private School school;
+	@JoinColumn(name = "SCHOOL_DETAIL_ID")
+	private SchoolDetail schoolDetail;
 
 	public String getType() {
 		return type;
@@ -39,12 +39,12 @@ public class SchoolContact extends EntityObject<Long> {
 		this.value = value;
 	}
 
-	public School getSchool() {
-		return school;
+	public SchoolDetail getSchoolDetail() {
+		return schoolDetail;
 	}
 
-	public void setSchool(School school) {
-		this.school = school;
+	public void setSchoolDetail(SchoolDetail schoolDetail) {
+		this.schoolDetail = schoolDetail;
 	}
 
 }

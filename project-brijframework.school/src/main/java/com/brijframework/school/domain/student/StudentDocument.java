@@ -8,8 +8,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.brijframework.school.domain.DocumentsCategory;
 import com.brijframework.school.domain.EntityObject;
+import com.brijframework.school.domain.comman.DocumentsCategory;
 
 @Entity
 @Table(name = "STUDENT_DOCUMENT")

@@ -16,7 +16,7 @@ public class UserRole extends EntityObject<Long> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-		@OneToOne
+	@OneToOne
 	@JoinColumn(name = "USER_ID")
 	private UserLogin userLogin;
 
@@ -26,5 +26,21 @@ public class UserRole extends EntityObject<Long> {
 
 	public UserRole() {
 	}
-	
+
+	public UserLogin getUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(UserLogin userLogin) {
+		this.userLogin = userLogin;
+	}
+
+	public LoginRole getLoginRole() {
+		return loginRole;
+	}
+
+	public void setLoginRole(LoginRole loginRole) {
+		this.loginRole = loginRole;
+	}
+
 }

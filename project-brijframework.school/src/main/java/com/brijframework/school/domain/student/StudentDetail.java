@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import com.brijframework.school.domain.EntityObject;
 import com.brijframework.school.domain.location.Address;
 import com.brijframework.school.domain.profile.Religion;
+import com.brijframework.school.domain.setting.SchoolDetail;
 
 @Entity
 @Table(name = "STUDENT_DETAIL")
@@ -57,13 +58,16 @@ public class StudentDetail extends EntityObject<Long>{
 	private Address address;
 	
 	@OneToOne
+	@JoinColumn(name = "SCHOOL_DETAIL_ID")
+	private SchoolDetail schoolDetail;
+	@OneToOne
 	@JoinColumn(name = "ADMISSION_ID")
 	private StudentAdmission admission;
 	
 	@OneToMany(mappedBy = "studentDetail")
 	private List<StudentContact> contacts;
 	
-	@OneToOne(mappedBy = "studentDetail")
+	@OneToMany(mappedBy = "studentDetail")
 	private List<StudentFamily> families;
 	
 }

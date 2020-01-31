@@ -21,11 +21,11 @@ public class State extends EntityObject<Long> {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "STATE_NAME")
-	private String stateName;
+	@Column(name = "NAME")
+	private String name;
 	
-	@Column(name = "STATE_CODE")
-	private String stateCode;
+	@Column(name = "CODE")
+	private String code;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "COUNTRY_ID")
@@ -34,20 +34,20 @@ public class State extends EntityObject<Long> {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "state")
 	private List<City> cities;
 
-	public String getStateName() {
-		return stateName;
+	public String getName() {
+		return name;
 	}
 
-	public void setStateName(String stateName) {
-		this.stateName = stateName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getStateCode() {
-		return stateCode;
+	public String getCode() {
+		return code;
 	}
 
-	public void setStateCode(String stateCode) {
-		this.stateCode = stateCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Country getCountry() {
@@ -66,4 +66,5 @@ public class State extends EntityObject<Long> {
 		this.cities = cities;
 	}
 
+	
 }
