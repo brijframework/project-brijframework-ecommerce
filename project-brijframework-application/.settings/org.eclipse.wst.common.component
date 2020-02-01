@@ -33,6 +33,12 @@
         <dependent-module archiveName="brijframework-util-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/brijframework-util/brijframework-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="brijframework-hibernate-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/brijframework-hibernate/brijframework-hibernate">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="brijframework-jpa-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/brijframework-jpa/brijframework-jpa">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
                 
         <property name="context-root" value="project-brijframework-application"/>
                 
