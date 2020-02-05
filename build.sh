@@ -10,4 +10,4 @@ exec &> logfile.txt
 
 # project-brijframework-ecommerce
 echo "Starting install project-brijframework-ecommerce..."
-mvn clean install 
+mvn clean install &

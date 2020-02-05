@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @MappedSuperclass
 public abstract class EntityObject<T> implements Serializable{
 
@@ -26,12 +29,14 @@ public abstract class EntityObject<T> implements Serializable{
 	private String createdUid;
 
 	@Column(name = "created_at")
+	@CreationTimestamp
 	private Date createdAt;
 
 	@Column(name = "updated_Uid")
 	private Date updatedUid;
 
 	@Column(name = "updated_at")
+	@UpdateTimestamp
 	private Date updatedAt;
 
 	@Column(name = "is_active")

@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
+import com.brijframework.school.domain.setting.SchoolDetail;
 
 @Entity
 @Table(name = "EMPLOYEE_DETAIL")
@@ -32,4 +35,7 @@ public class EmployeeDetail extends EntityObject<Long>{
 	@Column(name = "GENDER")
 	private String gender;
 
+	@ManyToOne
+	@JoinColumn
+	private SchoolDetail schoolDetail;
 }

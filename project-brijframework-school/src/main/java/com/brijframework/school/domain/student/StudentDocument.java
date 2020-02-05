@@ -1,15 +1,13 @@
 package com.brijframework.school.domain.student;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
-import com.brijframework.school.domain.comman.DocumentsCategory;
+import com.brijframework.school.domain.comman.DocumentDetail;
 
 @Entity
 @Table(name = "STUDENT_DOCUMENT")
@@ -20,45 +18,28 @@ public class StudentDocument extends EntityObject<Long> {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@JoinColumn(name = "STUDENT_ID")
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Student student;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CATEGORY_ID")
-	private DocumentsCategory document;
-
-	@Column(name = "file_name")
-	private String fileName;
+	@JoinColumn(name = "STUDENT_DETAIL_ID")
+	@ManyToOne
+	private StudentDetail studentDetail;
 	
-	@Column(name = "file_url")
-	private String fileUrl;
-	
-	@Lob
-	@Column(name = "file_data")
-	private byte[] fileData;
+	@JoinColumn(name = "DOCUMENT_DETAIL_ID")
+	@OneToOne
+	private DocumentDetail documentDetail;
 
-	public String getFileName() {
-		return fileName;
+	public StudentDetail getStudentDetail() {
+		return studentDetail;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setStudentDetail(StudentDetail studentDetail) {
+		this.studentDetail = studentDetail;
 	}
 
-	public Student getStudent() {
-		return student;
+	public DocumentDetail getDocumentDetail() {
+		return documentDetail;
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setDocumentDetail(DocumentDetail documentDetail) {
+		this.documentDetail = documentDetail;
 	}
 
-	public DocumentsCategory getDocument() {
-		return document;
-	}
-
-	public void setDocument(DocumentsCategory document) {
-		this.document = document;
-	}
 }

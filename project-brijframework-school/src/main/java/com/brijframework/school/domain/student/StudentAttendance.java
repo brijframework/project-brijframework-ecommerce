@@ -21,7 +21,7 @@ public class StudentAttendance extends EntityObject<Long> {
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "STUDENT_ID")
-	private Student student;
+	private StudentInformation student;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "CLASS_DETAIL_ID")

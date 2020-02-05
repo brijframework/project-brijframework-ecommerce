@@ -18,8 +18,8 @@ public class StudentCategory extends EntityObject<Long> {
 	@Column(name = "NAME")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	private List<Student> students;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "studentCategory")
+	private List<StudentInformation> students;
 
 	public String getName() {
 		return name;
@@ -29,11 +29,11 @@ public class StudentCategory extends EntityObject<Long> {
 		this.name = name;
 	}
 
-	public List<Student> getStudents() {
+	public List<StudentInformation> getStudents() {
 		return students;
 	}
 
-	public void setStudents(List<Student> students) {
+	public void setStudents(List<StudentInformation> students) {
 		this.students = students;
 	}
 
