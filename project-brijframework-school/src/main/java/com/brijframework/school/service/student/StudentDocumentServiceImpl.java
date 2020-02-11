@@ -1,7 +1,8 @@
-package com.brijframework.school.service;
+package com.brijframework.school.service.student;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +27,10 @@ public class StudentDocumentServiceImpl implements StudentDocumentService {
 	private DocumentDetailRepository documentDetailRepository;
 
 	@Override
-	public StudentDocumentDTO saveStudentDocument(Long studentDetailId, StudentDocumentRequest student) {
-		StudentDocument studentDocument = studentDocumentMapper.toEntity(student);
+	public StudentDocumentDTO saveStudentDocument(StudentDocumentRequest documentRequest) {
+		StudentDocument studentDocument = studentDocumentMapper.toEntity(documentRequest);
 		studentDocument.setDocumentDetail(documentDetailRepository.save(studentDocument.getDocumentDetail()));
-		studentDocument.setStudentDetail(studentDocumentMapper.getStudentDetail(studentDetailId));
+		studentDocument.setStudentDetail(studentDocumentMapper.getStudentDetail(documentRequest.getStudentDetailId()));
 		studentDocument=studentDocumentRepository.save(studentDocument);
 		return studentDocumentMapper.toDTO(studentDocument);
 	}
@@ -46,16 +47,22 @@ public class StudentDocumentServiceImpl implements StudentDocumentService {
 	}
 
 	@Override
-	public StudentDocumentDTO getStudentDocument(Long studentDetailId, Long id) {
-		StudentDocument studentDocument = studentDocumentRepository.findByStudentDetailIdAndId(studentDetailId,id);
-		return studentDocumentMapper.toDTO(studentDocument);
+	public StudentDocumentDTO getStudentDocument(Long id) {
+		Optional<StudentDocument> studentDocument = studentDocumentRepository.findById(id);
+		if(!studentDocument.isPresent()) {
+			return null;
+		}
+		return studentDocumentMapper.toDTO(studentDocument.get());
 	}
 
 	@Override
-	public boolean deleteStudentDocument(Long studentDetailId, Long id) {
-		StudentDocument studentDocument = studentDocumentRepository.findByStudentDetailIdAndId(studentDetailId,id);
-		studentDocument.setActive(false);
-		studentDocumentRepository.save(studentDocument);
+	public boolean deleteStudentDocument(Long id) {
+		Optional<StudentDocument> studentDocument = studentDocumentRepository.findById(id);
+		if(!studentDocument.isPresent()) {
+			return false;
+		}
+		studentDocument.get().setActive(false);
+		studentDocumentRepository.save(studentDocument.get());
 		return true;
 	}
 

@@ -12,7 +12,7 @@ import com.brijframework.school.domain.student.StudentInformation;
 @Transactional
 public interface StudentInformationRepository extends JpaRepository<StudentInformation, Long> {
 
-	StudentInformation findByActiveAndSchoolDetailIdAndId(boolean active,Long schoolId, Long id);
+	StudentInformation findByActiveAndId(boolean active,Long id);
 
 	List<StudentInformation> findByActiveAndSchoolDetailId(boolean active,Long schoolId);
 }

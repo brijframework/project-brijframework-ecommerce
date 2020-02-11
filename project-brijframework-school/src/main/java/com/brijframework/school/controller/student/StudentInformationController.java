@@ -1,4 +1,4 @@
-package com.brijframework.school.controller;
+package com.brijframework.school.controller.student;
 
 import java.util.List;
 
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brijframework.school.bean.student.StudentInformationDTO;
-import com.brijframework.school.service.StudentInformationService;
+import com.brijframework.school.service.student.StudentInformationService;
 
-@RequestMapping("school/{schoolId}/student/information")
+@RequestMapping("school/student/information")
 @RestController
 public class StudentInformationController {
 
@@ -25,13 +25,13 @@ public class StudentInformationController {
 	private StudentInformationService studentInformationService;
 
 	@PostMapping
-	public StudentInformationDTO addStudent(@PathVariable("schoolId") Long schoolId,@RequestBody StudentInformationDTO student ) {
-		return studentInformationService.saveStudentInformation(schoolId,student);
+	public StudentInformationDTO addStudent(@RequestBody StudentInformationDTO studentInformationDTO ) {
+		return studentInformationService.saveStudentInformation(studentInformationDTO);
 	}
 	
 	@PutMapping
-	public StudentInformationDTO updateStudent(@PathVariable("schoolId") Long schoolId,@RequestBody StudentInformationDTO student ) {
-		return studentInformationService.saveStudentInformation(schoolId,student);
+	public StudentInformationDTO updateStudent(@RequestBody StudentInformationDTO studentInformationDTO ) {
+		return studentInformationService.saveStudentInformation(studentInformationDTO);
 	}
 
 	@GetMapping
@@ -40,13 +40,13 @@ public class StudentInformationController {
 	}
 
 	@GetMapping("/{id}")
-	public StudentInformationDTO getStudent(@PathVariable("schoolId") Long schoolId, @PathVariable Long id) {
-		return studentInformationService.getStudentInformation(schoolId,id);
+	public StudentInformationDTO getStudent( @PathVariable Long id) {
+		return studentInformationService.getStudentInformation(id);
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delStudent(@PathVariable("schoolId") Long schoolId, @PathVariable Long id) {
-		studentInformationService.deleteStudentInformation(schoolId,id);
+	public ResponseEntity<String> delStudent( @PathVariable Long id) {
+		studentInformationService.deleteStudentInformation(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	

@@ -1,4 +1,4 @@
-package com.brijframework.school.service;
+package com.brijframework.school.service.student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,24 +22,25 @@ public class StudentInformationServiceImpl implements StudentInformationService 
 	private StudentInformationRepository studentInformationRepository;
 	
 	@Override
-	public StudentInformationDTO saveStudentInformation(Long schoolId, StudentInformationDTO studentDTO) {
+	public StudentInformationDTO saveStudentInformation(StudentInformationDTO studentDTO) {
 		StudentInformation studentInformation = studentDetailMapper.toEntity(studentDTO);
-		studentInformation.setSchoolDetail(studentDetailMapper.getSchoolDetail(schoolId));
-		studentInformationRepository.save(studentInformation);
+		studentInformation.setSchoolDetail(studentDetailMapper.getSchoolDetail(studentDTO.getSchoolId()));
+		studentInformation.setStudentDetail(studentDetailMapper.getStudentDetail(studentDTO.getStudentDetailId()));
+		studentInformation=studentInformationRepository.save(studentInformation);
 		return studentDetailMapper.toDTO(studentInformation);
 	}
 
 	@Override
-	public boolean deleteStudentInformation(Long schoolId, Long id) {
-		StudentInformation studentInformation = studentInformationRepository.findByActiveAndSchoolDetailIdAndId(true, schoolId, id);
+	public boolean deleteStudentInformation(Long id) {
+		StudentInformation studentInformation = studentInformationRepository.findByActiveAndId(true, id);
 		studentInformation.setActive(false);
 		studentInformationRepository.save(studentInformation);
 		return true;
 	}
 
 	@Override
-	public StudentInformationDTO getStudentInformation(Long schoolId, Long id) {
-		StudentInformation studentInformation = studentInformationRepository.findByActiveAndSchoolDetailIdAndId(true, schoolId, id);
+	public StudentInformationDTO getStudentInformation( Long id) {
+		StudentInformation studentInformation = studentInformationRepository.findByActiveAndId(true, id);
 		return studentDetailMapper.toDTO(studentInformation);
 	}
 

@@ -1,4 +1,4 @@
-package com.brijframework.school.controller;
+package com.brijframework.school.controller.student;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.brijframework.school.bean.student.StudentDocumentDTO;
 import com.brijframework.school.bean.student.StudentDocumentRequest;
-import com.brijframework.school.service.StudentDocumentService;
+import com.brijframework.school.service.student.StudentDocumentService;
 
-@RequestMapping("school/student/{studentDetailId}/document")
+@RequestMapping("school/student/document")
 @RestController
 public class StudentDocumentController {
 
@@ -27,28 +27,28 @@ public class StudentDocumentController {
 	private StudentDocumentService studentDocumentService;
 
 	@PostMapping
-	public StudentDocumentDTO addStudentDocument(@PathVariable("studentDetailId") Long studentDetailId,@RequestParam Long categoryId, @RequestParam MultipartFile file) {
-		return studentDocumentService.saveStudentDocument(studentDetailId,new  StudentDocumentRequest(null,categoryId,file));
+	public StudentDocumentDTO addStudentDocument(@RequestParam("studentDetailId") Long studentDetailId,@RequestParam Long categoryId, @RequestParam MultipartFile file) {
+		return studentDocumentService.saveStudentDocument(new  StudentDocumentRequest(studentDetailId,null,categoryId,file));
 	}
 	
 	@PutMapping
-	public StudentDocumentDTO updateStudentDocument(@PathVariable("studentDetailId") Long studentDetailId,@RequestParam Long id, @RequestParam Long categoryId,@RequestParam MultipartFile file) {
-		return studentDocumentService.saveStudentDocument(studentDetailId,new  StudentDocumentRequest(id,categoryId,file));
+	public StudentDocumentDTO updateStudentDocument(@RequestParam("studentDetailId") Long studentDetailId,@RequestParam Long id, @RequestParam Long categoryId,@RequestParam MultipartFile file) {
+		return studentDocumentService.saveStudentDocument(new  StudentDocumentRequest(studentDetailId,id,categoryId,file));
 	}
 
-	@GetMapping
+	@GetMapping("/list/{studentDetailId}")
 	public List<StudentDocumentDTO> getStudentDocumentList(@PathVariable("studentDetailId") Long studentDetailId) {
 		return studentDocumentService.getStudentDocumentList(studentDetailId);
 	}
 
 	@GetMapping("/{id}")
-	public StudentDocumentDTO getStudentDocument(@PathVariable("studentDetailId") Long studentDetailId, @PathVariable Long id) {
-		return studentDocumentService.getStudentDocument(studentDetailId,id);
+	public StudentDocumentDTO getStudentDocument(@PathVariable Long id) {
+		return studentDocumentService.getStudentDocument(id);
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delStudentDocument(@PathVariable("studentDetailId") Long studentDetailId, @PathVariable Long id) {
-		studentDocumentService.deleteStudentDocument(studentDetailId,id);
+	public ResponseEntity<String> delStudentDocument( @PathVariable Long id) {
+		studentDocumentService.deleteStudentDocument(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	

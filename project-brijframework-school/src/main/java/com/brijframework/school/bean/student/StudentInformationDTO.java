@@ -12,6 +12,15 @@ public class StudentInformationDTO extends AbstractDTO<Long> {
 	private String srno;
 	private Long lfNo;
 	private Long studentDetailId;
+	private Long schoolId;
+
+	public Long getSchoolId() {
+		return schoolId;
+	}
+
+	public void setSchoolId(Long schoolId) {
+		this.schoolId = schoolId;
+	}
 
 	public Long getRollNo() {
 		return rollNo;

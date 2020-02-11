@@ -24,5 +24,7 @@ public interface StudentDetailMapper {
 	StudentAdmissionDTO toDTO(StudentAdmission studentAdmission);
 
 	StudentAdmission toEntity(StudentAdmissionDTO studentDTO);
+
+	StudentDetail getStudentDetail(Long studentDetailId);
 	
 }

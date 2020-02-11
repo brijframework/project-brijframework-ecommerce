@@ -1,5 +1,7 @@
 package com.brijframework.school.bean.student;
 
+import javax.validation.constraints.NotNull;
+
 import com.brijframework.school.bean.AbstractDTO;
 
 public class StudentAdmissionDTO extends AbstractDTO<Long> {
@@ -18,6 +20,17 @@ public class StudentAdmissionDTO extends AbstractDTO<Long> {
 	private String writtenOrIntervieDate;
 
 	private String status;
+	
+	@NotNull
+	private Long schoolId;
+
+	public Long getSchoolId() {
+		return schoolId;
+	}
+
+	public void setSchoolId(Long schoolId) {
+		this.schoolId = schoolId;
+	}
 
 	public String getAdmissionDate() {
 		return admissionDate;

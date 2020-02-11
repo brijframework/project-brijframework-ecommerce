@@ -7,12 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.brijframework.school.domain.student.StudentFamily;
+import com.brijframework.school.domain.student.StudentContact;
 
 @Repository
 @Transactional
-public interface StudentFamilyRepository extends JpaRepository<StudentFamily, Long> {
+public interface StudentContactRepository extends JpaRepository<StudentContact, Long> {
 
-	Optional<List<StudentFamily>> findByStudentDetailId(Long studentDetailId);
+	Optional<List<StudentContact>> findByStudentDetailId(Long studentDetailId);
+
+	StudentContact findByStudentDetailIdAndId(Long studentDetailId, Long id);
 
 }

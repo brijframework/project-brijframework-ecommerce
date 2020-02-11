@@ -1,4 +1,4 @@
-package com.brijframework.school.service;
+package com.brijframework.school.service.school;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

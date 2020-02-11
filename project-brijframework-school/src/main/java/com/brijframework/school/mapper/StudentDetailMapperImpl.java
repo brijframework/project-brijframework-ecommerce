@@ -37,6 +37,13 @@ public class StudentDetailMapperImpl implements StudentDetailMapper {
 		detail.setId(schoolDetailId);
 		return detail;
 	}
+	
+	@Override
+	public StudentDetail getStudentDetail(Long studentDetailId) {
+		StudentDetail studentDetail=new StudentDetail();
+		studentDetail.setId(studentDetailId);
+		return studentDetail;
+	}
 
 	@Override
 	public StudentDetailDTO toDTO(StudentDetail detailRequest) {

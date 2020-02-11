@@ -175,11 +175,11 @@
 
 		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>${jasperreports.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>

@@ -1,9 +1,12 @@
 package com.brijframework.school.domain.student;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
@@ -19,23 +22,67 @@ public class StudentFamily extends EntityObject<Long> {
 	@Column(name = "NAME")
 	private String name;
 	
-	@Column(name = "EMAIL")
-	private String email;
-	
-	@Column(name = "MOBILE")
-	private String mobile;
-	
-	@Column(name = "EDUCATION")
-	private String education;
-	
 	@Column(name = "OCCUPATION")
 	private String occupation;
 	
 	@Column(name = "ANNUAL_INCOME")
-	private String annualIncome;
+	private Double annualIncome;
 	
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_DETAIL_ID")
 	private StudentDetail studentDetail;
+	
+	@OneToMany(mappedBy = "studentFamily")
+	private List<StudentFamilyContact> familyContacts;
+	
+	@OneToMany(mappedBy = "studentFamily")
+	private List<StudentFamilyQualification> familyQualifications;
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	public Double getAnnualIncome() {
+		return annualIncome;
+	}
+
+	public void setAnnualIncome(Double annualIncome) {
+		this.annualIncome = annualIncome;
+	}
+
+	public StudentDetail getStudentDetail() {
+		return studentDetail;
+	}
+
+	public void setStudentDetail(StudentDetail studentDetail) {
+		this.studentDetail = studentDetail;
+	}
+
+	public List<StudentFamilyContact> getFamilyContacts() {
+		return familyContacts;
+	}
+
+	public void setFamilyContacts(List<StudentFamilyContact> familyContacts) {
+		this.familyContacts = familyContacts;
+	}
+
+	public List<StudentFamilyQualification> getFamilyQualifications() {
+		return familyQualifications;
+	}
+
+	public void setFamilyQualifications(List<StudentFamilyQualification> familyQualifications) {
+		this.familyQualifications = familyQualifications;
+	}
 }

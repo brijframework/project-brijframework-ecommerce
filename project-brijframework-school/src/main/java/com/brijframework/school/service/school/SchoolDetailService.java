@@ -1,4 +1,4 @@
-package com.brijframework.school.service;
+package com.brijframework.school.service.school;
 
 import com.brijframework.school.bean.school.SchoolDetailDTO;
 import com.brijframework.school.bean.school.SchoolDetailRequest;

@@ -1,4 +1,4 @@
-package com.brijframework.school.service;
+package com.brijframework.school.service.student;
 
 import java.util.ArrayList;
 import java.util.List;

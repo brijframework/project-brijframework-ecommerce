@@ -1,4 +1,4 @@
-package com.brijframework.school.service;
+package com.brijframework.school.service.student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,24 +22,24 @@ public class StudentAdmissionServiceImpl implements StudentAdmissionService {
 	private StudentAdmissionRepository studentAdmissionRepository;
 	
 	@Override
-	public StudentAdmissionDTO saveStudentAdmission(Long schoolId, StudentAdmissionDTO studentDTO) {
+	public StudentAdmissionDTO saveStudentAdmission(StudentAdmissionDTO studentDTO) {
 		StudentAdmission studentAdmission = studentDetailMapper.toEntity(studentDTO);
-		studentAdmission.setSchoolDetail(studentDetailMapper.getSchoolDetail(schoolId));
+		studentAdmission.setSchoolDetail(studentDetailMapper.getSchoolDetail(studentDTO.getSchoolId()));
 		studentAdmissionRepository.save(studentAdmission);
 		return studentDetailMapper.toDTO(studentAdmission);
 	}
 
 	@Override
-	public boolean deleteStudentAdmission(Long schoolId, Long id) {
-		StudentAdmission studentAdmission = studentAdmissionRepository.findByActiveAndSchoolDetailIdAndId(true, schoolId, id);
+	public boolean deleteStudentAdmission(Long id) {
+		StudentAdmission studentAdmission = studentAdmissionRepository.findByActiveAndId(true, id);
 		studentAdmission.setActive(false);
 		studentAdmissionRepository.save(studentAdmission);
 		return true;
 	}
 
 	@Override
-	public StudentAdmissionDTO getStudentAdmission(Long schoolId, Long id) {
-		StudentAdmission studentInformation = studentAdmissionRepository.findByActiveAndSchoolDetailIdAndId(true, schoolId, id);
+	public StudentAdmissionDTO getStudentAdmission(Long id) {
+		StudentAdmission studentInformation = studentAdmissionRepository.findByActiveAndId(true, id);
 		return studentDetailMapper.toDTO(studentInformation);
 	}
 

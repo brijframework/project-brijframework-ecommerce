@@ -12,8 +12,8 @@ import com.brijframework.school.domain.student.StudentAdmission;
 @Transactional
 public interface StudentAdmissionRepository extends JpaRepository<StudentAdmission, Long>  {
 
-	StudentAdmission findByActiveAndSchoolDetailIdAndId(boolean b, Long schoolId, Long id);
+	StudentAdmission findByActiveAndId(boolean active,Long id);
 
-	List<StudentAdmission> findByActiveAndSchoolDetailId(boolean b, Long schoolId);
+	List<StudentAdmission> findByActiveAndSchoolDetailId(boolean active, Long schoolId);
 
 }

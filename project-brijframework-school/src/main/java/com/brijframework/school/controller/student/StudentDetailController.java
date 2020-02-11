@@ -1,4 +1,4 @@
-package com.brijframework.school.controller;
+package com.brijframework.school.controller.student;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.brijframework.school.bean.student.StudentDetailDTO;
 import com.brijframework.school.bean.student.StudentDetailRequest;
-import com.brijframework.school.service.StudentDetailService;
+import com.brijframework.school.service.student.StudentDetailService;
 
 @RequestMapping("school/{schoolId}/student/detail")
 @RestController
