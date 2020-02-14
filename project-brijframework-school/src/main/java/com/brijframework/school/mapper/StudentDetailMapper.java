@@ -1,6 +1,5 @@
 package com.brijframework.school.mapper;
 
-import com.brijframework.school.bean.location.AddressDTO;
 import com.brijframework.school.bean.location.AddressRequest;
 import com.brijframework.school.bean.student.StudentAdmissionDTO;
 import com.brijframework.school.bean.student.StudentDetailDTO;
