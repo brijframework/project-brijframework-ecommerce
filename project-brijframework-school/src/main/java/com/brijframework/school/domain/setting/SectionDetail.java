@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.brijframework.school.domain.EntityObject;
-import com.brijframework.school.domain.student.StudentInformation;
+import com.brijframework.school.domain.student.StudentDetail;
 
 @SuppressWarnings("serial")
 @Entity
@@ -26,6 +26,32 @@ public class SectionDetail extends EntityObject<Integer> {
 	private ClassDetail classDetail;
 	
 	@OneToMany
-	private List<StudentInformation> students;
+	private List<StudentDetail> studentDetails;
+
+	public String getSectionName() {
+		return sectionName;
+	}
+
+	public void setSectionName(String sectionName) {
+		this.sectionName = sectionName;
+	}
+
+	public ClassDetail getClassDetail() {
+		return classDetail;
+	}
+
+	public void setClassDetail(ClassDetail classDetail) {
+		this.classDetail = classDetail;
+	}
+
+	public List<StudentDetail> getStudentDetails() {
+		return studentDetails;
+	}
+
+	public void setStudentDetails(List<StudentDetail> studentDetails) {
+		this.studentDetails = studentDetails;
+	}
+	
+	
 	
 }

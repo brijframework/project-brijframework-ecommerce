@@ -26,7 +26,7 @@ public class StudentCategory extends EntityObject<Long> {
 	private CategoryDetail categoryDetail;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "studentCategory")
-	private List<StudentInformation> students;
+	private List<StudentDetail> studentDetails;
 	
 	public CategoryDetail getCategoryDetail() {
 		return categoryDetail;
@@ -36,12 +36,12 @@ public class StudentCategory extends EntityObject<Long> {
 		this.categoryDetail = categoryDetail;
 	}
 
-	public List<StudentInformation> getStudents() {
-		return students;
+	public List<StudentDetail> getStudentDetails() {
+		return studentDetails;
 	}
 
-	public void setStudents(List<StudentInformation> students) {
-		this.students = students;
+	public void setStudentDetails(List<StudentDetail> studentDetails) {
+		this.studentDetails = studentDetails;
 	}
 
 }

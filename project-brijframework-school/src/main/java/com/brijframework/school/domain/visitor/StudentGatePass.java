@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.brijframework.school.domain.EntityObject;
-import com.brijframework.school.domain.student.StudentInformation;
+import com.brijframework.school.domain.student.StudentDetail;
 
 @SuppressWarnings("serial")
 @Entity
@@ -21,8 +21,8 @@ import com.brijframework.school.domain.student.StudentInformation;
 public class StudentGatePass extends EntityObject<Integer> {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ADMISSION_NO")
-	private StudentInformation student;
+	@JoinColumn(name = "STUDENT_DETAIL_ID")
+	private StudentDetail studentDetail;
 
 	@Column(name = "LEAVING_DATE")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -37,12 +37,12 @@ public class StudentGatePass extends EntityObject<Integer> {
 	@Column(name = "LEAVING_WITH")
 	private String leavingWith;
 
-	public StudentInformation getStudent() {
-		return student;
+	public StudentDetail getStudentDetail() {
+		return studentDetail;
 	}
 
-	public void setStudent(StudentInformation student) {
-		this.student = student;
+	public void setStudentDetail(StudentDetail studentDetail) {
+		this.studentDetail = studentDetail;
 	}
 
 	public Date getLeavingDate() {

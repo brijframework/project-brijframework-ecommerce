@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import com.brijframework.school.bean.student.StudentDocumentDTO;
 import com.brijframework.school.bean.student.StudentDocumentRequest;
 import com.brijframework.school.domain.comman.DocumentDetail;
-import com.brijframework.school.domain.student.StudentDetail;
 import com.brijframework.school.domain.student.StudentDocument;
+import com.brijframework.school.domain.student.StudentProfile;
 import com.brijframework.school.util.ApplicationUtil;
 
 @Component
@@ -49,11 +49,8 @@ public class StudentDocumentMapperImpl implements StudentDocumentMapper {
 	}
 	
 	@Override
-	public StudentDetail getStudentDetail(Long studentDetailId) {
-		if(studentDetailId==null) {
-			return null;
-		}
-		StudentDetail studentDetail = new StudentDetail();
+	public StudentProfile getStudentProfile(Long studentDetailId) {
+		StudentProfile studentDetail = new StudentProfile();
 		studentDetail.setId(studentDetailId);
 		return studentDetail;
 	}

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.brijframework.school.bean.student.StudentContactDTO;
 import com.brijframework.school.domain.comman.ContactDetail;
 import com.brijframework.school.domain.student.StudentContact;
-import com.brijframework.school.domain.student.StudentDetail;
+import com.brijframework.school.domain.student.StudentProfile;
 
 @Component
 public class StudentContactMapperImpl implements StudentContactMapper {
@@ -15,13 +15,13 @@ public class StudentContactMapperImpl implements StudentContactMapper {
 		StudentContact studentContact = new StudentContact();
 		studentContact.setActive(true);
 		studentContact.setContactDetail(toEntity(studentContactDTO.getType(), studentContactDTO.getValue()));
-		studentContact.setStudentDetail(toEntity(studentContactDTO.getStudentDetailId()));
+		studentContact.setStudentProfile(toEntity(studentContactDTO.getStudentProfileId()));
 		return studentContact;
 	}
 
 	@Override
-	public StudentDetail toEntity(Long studentDetailId) {
-		StudentDetail studentDetail = new StudentDetail();
+	public StudentProfile toEntity(Long studentDetailId) {
+		StudentProfile studentDetail = new StudentProfile();
 		studentDetail.setId(studentDetailId);
 		return studentDetail;
 	}
@@ -41,7 +41,7 @@ public class StudentContactMapperImpl implements StudentContactMapper {
 		studentContactDTO.setId(studentContact.getId());
 		studentContactDTO.setType(studentContact.getContactDetail().getType());
 		studentContactDTO.setValue(studentContact.getContactDetail().getValue());
-		studentContactDTO.setStudentDetailId(studentContact.getStudentDetail().getId());
+		studentContactDTO.setStudentProfileId(studentContact.getStudentProfile().getId());
 		return studentContactDTO;
 	}
 }

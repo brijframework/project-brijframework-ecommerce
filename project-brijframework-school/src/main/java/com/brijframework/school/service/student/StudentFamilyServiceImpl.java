@@ -41,7 +41,7 @@ public class StudentFamilyServiceImpl implements StudentFamilyService {
 	@Override
 	public StudentFamilyDTO saveStudentFamily(StudentFamilyDTO studentFamilyDTO) {
 		StudentFamily studentFamily=studentFamilyMapper.toEntity(studentFamilyDTO);
-		studentFamily.setStudentDetail(studentFamilyMapper.toStudentDetail(studentFamilyDTO.getStudentDetailId()));
+		studentFamily.setStudentProfile(studentFamilyMapper.toStudentProfile(studentFamilyDTO.getStudentDetailId()));
 		studentFamily=studentFamilyRepository.save(studentFamily);
 		
 		if(!CollectionUtils.isEmpty(studentFamilyDTO.getFamilyContacts())) {
@@ -65,7 +65,7 @@ public class StudentFamilyServiceImpl implements StudentFamilyService {
 
 	@Override
 	public List<StudentFamilyDTO> getStudentFamilyList(Long studentDetailId) {
-		Optional<List<StudentFamily>> findByStudentDetailId = studentFamilyRepository.findByStudentDetailId(studentDetailId);
+		Optional<List<StudentFamily>> findByStudentDetailId = studentFamilyRepository.findByStudentProfileId(studentDetailId);
 		List<StudentFamilyDTO> families=new ArrayList<StudentFamilyDTO>();
 		if(!findByStudentDetailId.isPresent()) {
 			return families;

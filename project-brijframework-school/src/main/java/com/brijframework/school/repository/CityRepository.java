@@ -28,8 +28,7 @@ import com.brijframework.school.domain.location.City;
 @Transactional
 public interface CityRepository extends JpaRepository<City, Long> {
 
-	Page<City> findByNameContainingAndStateCountryNameContainingAllIgnoringCase(String trim, String trim2,
-			Pageable pageable);
+	Page<City> findByNameContainingAndStateCountryNameContainingAllIgnoringCase(String trim, String trim2, Pageable pageable);
 
 	City findByNameAndStateCountryNameAllIgnoringCase(String name, String country);
 

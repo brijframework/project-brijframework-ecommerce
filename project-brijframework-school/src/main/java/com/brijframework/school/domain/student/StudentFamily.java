@@ -21,20 +21,20 @@ public class StudentFamily extends EntityObject<Long> {
 
 	@Column(name = "NAME")
 	private String name;
-	
+
 	@Column(name = "OCCUPATION")
 	private String occupation;
-	
+
 	@Column(name = "ANNUAL_INCOME")
 	private Double annualIncome;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_DETAIL_ID")
-	private StudentDetail studentDetail;
-	
+	@JoinColumn(name = "STUDENT_PROFILE_ID")
+	private StudentProfile studentProfile;
+
 	@OneToMany(mappedBy = "studentFamily")
 	private List<StudentFamilyContact> familyContacts;
-	
+
 	@OneToMany(mappedBy = "studentFamily")
 	private List<StudentFamilyQualification> familyQualifications;
 
@@ -62,12 +62,12 @@ public class StudentFamily extends EntityObject<Long> {
 		this.annualIncome = annualIncome;
 	}
 
-	public StudentDetail getStudentDetail() {
-		return studentDetail;
+	public StudentProfile getStudentProfile() {
+		return studentProfile;
 	}
 
-	public void setStudentDetail(StudentDetail studentDetail) {
-		this.studentDetail = studentDetail;
+	public void setStudentProfile(StudentProfile studentProfile) {
+		this.studentProfile = studentProfile;
 	}
 
 	public List<StudentFamilyContact> getFamilyContacts() {

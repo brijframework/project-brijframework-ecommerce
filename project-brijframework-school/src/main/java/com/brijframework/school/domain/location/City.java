@@ -27,6 +27,14 @@ public class City extends EntityObject<Long> {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "STATE_ID")
 	private State state;
+	
+	public City() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public City(Long id) {
+		this.setId(id);
+	}
 
 	public String getName() {
 		return name;

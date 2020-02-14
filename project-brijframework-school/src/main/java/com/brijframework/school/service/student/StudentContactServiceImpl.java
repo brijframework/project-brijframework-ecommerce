@@ -35,7 +35,7 @@ public class StudentContactServiceImpl implements StudentContactService {
 
 	@Override
 	public List<StudentContactDTO> getStudentContactList(Long studentDetailId) {
-		Optional<List<StudentContact>> findByStudentDetailId = studentContactRepository.findByStudentDetailId(studentDetailId);
+		Optional<List<StudentContact>> findByStudentDetailId = studentContactRepository.findByStudentProfileId(studentDetailId);
 		List<StudentContactDTO> list=new ArrayList<StudentContactDTO>();
 		if(!findByStudentDetailId.isPresent()) {
 			return list;
@@ -48,12 +48,12 @@ public class StudentContactServiceImpl implements StudentContactService {
 
 	@Override
 	public StudentContactDTO getStudentContact(Long studentDetailId, Long id) {
-		return studentContactMapper.toDTO(studentContactRepository.findByStudentDetailIdAndId(studentDetailId,id));
+		return studentContactMapper.toDTO(studentContactRepository.findByStudentProfileIdAndId(studentDetailId,id));
 	}
 
 	@Override
 	public boolean deleteStudentContact(Long studentDetailId, Long id) {
-		StudentContact findByStudentDetailIdAndId = studentContactRepository.findByStudentDetailIdAndId(studentDetailId,id);
+		StudentContact findByStudentDetailIdAndId = studentContactRepository.findByStudentProfileIdAndId(studentDetailId,id);
 		if(findByStudentDetailIdAndId==null) {
 			return false;
 		}

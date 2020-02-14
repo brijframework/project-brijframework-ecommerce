@@ -12,8 +12,8 @@ import com.brijframework.school.domain.student.StudentDocument;
 @Transactional
 public interface StudentDocumentRepository extends JpaRepository<StudentDocument, Long>  {
 
-	List<StudentDocument> findByStudentDetailId(Long studentDetailId);
+	List<StudentDocument> findByStudentProfileId(Long studentDetailId);
 
-	StudentDocument findByStudentDetailIdAndId(Long studentDetailId, Long id);
+	StudentDocument findByStudentProfileIdAndId(Long studentDetailId, Long id);
 
 }

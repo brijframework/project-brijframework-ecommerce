@@ -13,7 +13,7 @@ public class StudentContactDTO extends AbstractDTO<Long> {
 
 	private String value;
 
-	private Long studentDetailId;
+	private Long studentProfileId;
 
 	public String getType() {
 		return type;
@@ -31,12 +31,12 @@ public class StudentContactDTO extends AbstractDTO<Long> {
 		this.value = value;
 	}
 
-	public Long getStudentDetailId() {
-		return studentDetailId;
+	public Long getStudentProfileId() {
+		return studentProfileId;
 	}
 
-	public void setStudentDetailId(Long studentDetailId) {
-		this.studentDetailId = studentDetailId;
+	public void setStudentProfileId(Long studentProfileId) {
+		this.studentProfileId = studentProfileId;
 	}
 
 }

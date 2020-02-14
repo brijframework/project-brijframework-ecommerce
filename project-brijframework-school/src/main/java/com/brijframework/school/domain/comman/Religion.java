@@ -1,4 +1,4 @@
-package com.brijframework.school.domain.profile;
+package com.brijframework.school.domain.comman;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,8 +7,8 @@ import javax.persistence.Table;
 import com.brijframework.school.domain.EntityObject;
 
 @Entity
-@Table(name = "religion")
-public class Religion extends EntityObject<Integer> {
+@Table(name = "RELIGION")
+public class Religion extends EntityObject<Long> {
 	/**
 	 * 
 	 */

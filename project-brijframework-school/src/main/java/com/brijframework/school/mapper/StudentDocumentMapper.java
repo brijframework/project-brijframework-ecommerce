@@ -2,8 +2,8 @@ package com.brijframework.school.mapper;
 
 import com.brijframework.school.bean.student.StudentDocumentDTO;
 import com.brijframework.school.bean.student.StudentDocumentRequest;
-import com.brijframework.school.domain.student.StudentDetail;
 import com.brijframework.school.domain.student.StudentDocument;
+import com.brijframework.school.domain.student.StudentProfile;
 
 public interface StudentDocumentMapper {
 
@@ -11,6 +11,6 @@ public interface StudentDocumentMapper {
 
 	StudentDocumentDTO toDTO(StudentDocument studentDocument);
 
-	StudentDetail getStudentDetail(Long studentDetailId);
-
+	StudentProfile getStudentProfile(Long studentDetailId);
+	
 }

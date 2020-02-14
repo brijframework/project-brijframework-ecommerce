@@ -3,7 +3,7 @@ package com.brijframework.school.mapper;
 import com.brijframework.school.bean.student.StudentContactDTO;
 import com.brijframework.school.domain.comman.ContactDetail;
 import com.brijframework.school.domain.student.StudentContact;
-import com.brijframework.school.domain.student.StudentDetail;
+import com.brijframework.school.domain.student.StudentProfile;
 
 public interface StudentContactMapper {
 
@@ -11,7 +11,7 @@ public interface StudentContactMapper {
 
 	ContactDetail toEntity(String type, String value);
 
-	StudentDetail toEntity(Long studentDetailId);
+	StudentProfile toEntity(Long studentDetailId);
 
 	StudentContactDTO toDTO(StudentContact studentContact);
 

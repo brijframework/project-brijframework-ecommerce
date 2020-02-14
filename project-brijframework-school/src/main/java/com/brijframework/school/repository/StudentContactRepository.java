@@ -13,8 +13,8 @@ import com.brijframework.school.domain.student.StudentContact;
 @Transactional
 public interface StudentContactRepository extends JpaRepository<StudentContact, Long> {
 
-	Optional<List<StudentContact>> findByStudentDetailId(Long studentDetailId);
+	Optional<List<StudentContact>> findByStudentProfileId(Long studentDetailId);
 
-	StudentContact findByStudentDetailIdAndId(Long studentDetailId, Long id);
+	StudentContact findByStudentProfileIdAndId(Long studentDetailId, Long id);
 
 }

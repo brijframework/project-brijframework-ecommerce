@@ -1,9 +1,9 @@
 package com.brijframework.school.bean.student;
 
 import com.brijframework.school.bean.AbstractDTO;
-import com.brijframework.school.bean.location.AddressDTO;
+import com.brijframework.school.bean.location.AddressRequest;
 
-public class StudentDetailDTO extends AbstractDTO<Long> {
+public class StudentProfileDTO extends AbstractDTO<Long> {
 
 	/**
 	 * 
@@ -26,9 +26,9 @@ public class StudentDetailDTO extends AbstractDTO<Long> {
 
 	private String nationality;
 
-	private StudentRegistrationDTO student;
+	private Long religionId;
 
-	private AddressDTO address;
+	private AddressRequest address;
 
 	public String getFirstName() {
 		return firstName;
@@ -94,19 +94,19 @@ public class StudentDetailDTO extends AbstractDTO<Long> {
 		this.nationality = nationality;
 	}
 
-	public StudentRegistrationDTO getStudent() {
-		return student;
+	public Long getReligionId() {
+		return religionId;
 	}
 
-	public void setStudent(StudentRegistrationDTO student) {
-		this.student = student;
+	public void setReligionId(Long religionId) {
+		this.religionId = religionId;
 	}
 
-	public AddressDTO getAddress() {
+	public AddressRequest getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressDTO address) {
+	public void setAddress(AddressRequest address) {
 		this.address = address;
 	}
 

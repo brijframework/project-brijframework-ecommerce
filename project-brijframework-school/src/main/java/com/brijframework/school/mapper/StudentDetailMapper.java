@@ -1,13 +1,19 @@
 package com.brijframework.school.mapper;
 
-import com.brijframework.school.bean.student.StudentInformationDTO;
+import com.brijframework.school.bean.location.AddressDTO;
+import com.brijframework.school.bean.location.AddressRequest;
 import com.brijframework.school.bean.student.StudentAdmissionDTO;
 import com.brijframework.school.bean.student.StudentDetailDTO;
 import com.brijframework.school.bean.student.StudentDetailRequest;
-import com.brijframework.school.domain.student.StudentInformation;
+import com.brijframework.school.bean.student.StudentProfileDTO;
+import com.brijframework.school.bean.student.StudentRegistrationDTO;
+import com.brijframework.school.domain.comman.Religion;
+import com.brijframework.school.domain.location.Address;
 import com.brijframework.school.domain.setting.SchoolDetail;
 import com.brijframework.school.domain.student.StudentAdmission;
 import com.brijframework.school.domain.student.StudentDetail;
+import com.brijframework.school.domain.student.StudentProfile;
+import com.brijframework.school.domain.student.StudentRegistration;
 
 public interface StudentDetailMapper {
 
@@ -15,9 +21,9 @@ public interface StudentDetailMapper {
 
 	StudentDetailDTO toDTO(StudentDetail studentDetail);
 
-	StudentInformation toEntity(StudentInformationDTO student);
+	StudentRegistration toEntity(StudentRegistrationDTO student);
 
-	StudentInformationDTO toDTO(StudentInformation student);
+	StudentRegistrationDTO toDTO(StudentRegistration student);
 
 	SchoolDetail getSchoolDetail(Long schoolDetailId);
 
@@ -26,5 +32,15 @@ public interface StudentDetailMapper {
 	StudentAdmission toEntity(StudentAdmissionDTO studentDTO);
 
 	StudentDetail getStudentDetail(Long studentDetailId);
+
+	StudentProfile getStudentProfile(Long studentDetailId);
+
+	StudentProfile getStudentProfile(StudentProfileDTO studentProfileDTO);
+
+	Address getAddress(AddressRequest address);
+
+	Religion getReligion(Long religionId);
+
+	AddressRequest getAddress(Address address);
 	
 }

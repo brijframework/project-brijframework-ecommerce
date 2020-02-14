@@ -22,8 +22,8 @@ public class StudentContact extends EntityObject<Long> {
 	private ContactDetail contactDetail;
 
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_DETAIL_ID")
-	private StudentDetail studentDetail;
+	@JoinColumn(name = "STUDENT_PROFILE_ID")
+	private StudentProfile studentProfile;
 
 	public ContactDetail getContactDetail() {
 		return contactDetail;
@@ -33,12 +33,12 @@ public class StudentContact extends EntityObject<Long> {
 		this.contactDetail = contactDetail;
 	}
 
-	public StudentDetail getStudentDetail() {
-		return studentDetail;
+	public StudentProfile getStudentProfile() {
+		return studentProfile;
 	}
 
-	public void setStudentDetail(StudentDetail studentDetail) {
-		this.studentDetail = studentDetail;
+	public void setStudentProfile(StudentProfile studentProfile) {
+		this.studentProfile = studentProfile;
 	}
 
 }

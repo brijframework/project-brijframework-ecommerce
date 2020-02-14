@@ -30,15 +30,17 @@ public class StudentDocumentServiceImpl implements StudentDocumentService {
 	public StudentDocumentDTO saveStudentDocument(StudentDocumentRequest documentRequest) {
 		StudentDocument studentDocument = studentDocumentMapper.toEntity(documentRequest);
 		studentDocument.setDocumentDetail(documentDetailRepository.save(studentDocument.getDocumentDetail()));
-		studentDocument.setStudentDetail(studentDocumentMapper.getStudentDetail(documentRequest.getStudentDetailId()));
+		studentDocument.setStudentProfile(studentDocumentMapper.getStudentProfile(documentRequest.getStudentDetailId()));
 		studentDocument=studentDocumentRepository.save(studentDocument);
 		return studentDocumentMapper.toDTO(studentDocument);
 	}
+	
+
 
 	@Override
 	public List<StudentDocumentDTO> getStudentDocumentList(Long studentDetailId) {
 		List<StudentDocumentDTO> list=new ArrayList<StudentDocumentDTO>();
-		List<StudentDocument> findByStudentDetailList= studentDocumentRepository.findByStudentDetailId(studentDetailId);
+		List<StudentDocument> findByStudentDetailList= studentDocumentRepository.findByStudentProfileId(studentDetailId);
 		System.out.println("findByStudentDetailList="+findByStudentDetailList);
 		for (StudentDocument studentDocument : findByStudentDetailList) {
 			list.add(studentDocumentMapper.toDTO(studentDocument));

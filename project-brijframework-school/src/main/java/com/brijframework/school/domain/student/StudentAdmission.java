@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -19,17 +22,16 @@ import com.brijframework.school.domain.setting.SchoolDetail;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "STUDENT_ADMISSION")
+@SequenceGenerator(name = "ADMISSION_SQN", sequenceName = "ADMISSION_SQN", initialValue = 1000)
 public class StudentAdmission extends EntityObject<Long> {
 
+	@Column(name = "ADMISSION_NO")
+	@GeneratedValue(generator = "ADMISSION_SQN" , strategy = GenerationType.SEQUENCE)
+	private Long admissionNo;
+	
 	@Column(name = "ADMISSION_DATE")
 	@CreationTimestamp
 	private Date admissionDate;
-
-	@Column(name = "S_NO")
-	private int sNo;
-
-	@Column(name = "REG_NO")
-	private String regNo;
 
 	@Column(name = "WRITTEN_OR_INTERVIEW_DATE")
 	private Date writtenOrIntervieDate;
@@ -39,8 +41,8 @@ public class StudentAdmission extends EntityObject<Long> {
 	private SchoolDetail schoolDetail;
 
 	@OneToOne
-	@JoinColumn(name = "STUDENT_DETAIL_ID")
-	private StudentDetail studentDetail;
+	@JoinColumn(name = "STUDENT_PROFILE_ID")
+	private StudentProfile studentProfile;
 
 	@OneToOne
 	@JoinColumn(name = "ADMISSION_STATUS_ID")
@@ -58,20 +60,12 @@ public class StudentAdmission extends EntityObject<Long> {
 		this.admissionDate = admissionDate;
 	}
 
-	public int getsNo() {
-		return sNo;
+	public Long getAdmissionNo() {
+		return admissionNo;
 	}
 
-	public void setsNo(int sNo) {
-		this.sNo = sNo;
-	}
-
-	public String getRegNo() {
-		return regNo;
-	}
-
-	public void setRegNo(String regNo) {
-		this.regNo = regNo;
+	public void setAdmissionNo(Long admissionNo) {
+		this.admissionNo = admissionNo;
 	}
 
 	public Date getWrittenOrIntervieDate() {
@@ -90,12 +84,12 @@ public class StudentAdmission extends EntityObject<Long> {
 		this.schoolDetail = schoolDetail;
 	}
 
-	public StudentDetail getStudentDetail() {
-		return studentDetail;
+	public StudentProfile getStudentProfile() {
+		return studentProfile;
 	}
 
-	public void setStudentDetail(StudentDetail studentDetail) {
-		this.studentDetail = studentDetail;
+	public void setStudentProfile(StudentProfile studentProfile) {
+		this.studentProfile = studentProfile;
 	}
 
 	public AdmissionStatus getAdmissionStatus() {

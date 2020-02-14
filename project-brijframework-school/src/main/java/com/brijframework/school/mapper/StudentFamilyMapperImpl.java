@@ -7,10 +7,10 @@ import com.brijframework.school.bean.student.StudentFamilyDTO;
 import com.brijframework.school.bean.student.StudentFamilyQualificationDTO;
 import com.brijframework.school.domain.comman.ContactDetail;
 import com.brijframework.school.domain.comman.QualificationDetail;
-import com.brijframework.school.domain.student.StudentDetail;
 import com.brijframework.school.domain.student.StudentFamily;
 import com.brijframework.school.domain.student.StudentFamilyContact;
 import com.brijframework.school.domain.student.StudentFamilyQualification;
+import com.brijframework.school.domain.student.StudentProfile;
 
 @Component
 public class StudentFamilyMapperImpl implements StudentFamilyMapper {
@@ -37,8 +37,8 @@ public class StudentFamilyMapperImpl implements StudentFamilyMapper {
 	}
 
 	@Override
-	public StudentDetail toStudentDetail(Long studentDetailId) {
-		StudentDetail studentDetail=new StudentDetail();
+	public StudentProfile toStudentProfile(Long studentDetailId) {
+		StudentProfile studentDetail=new StudentProfile();
 		studentDetail.setId(studentDetailId);
 		return studentDetail;
 	}

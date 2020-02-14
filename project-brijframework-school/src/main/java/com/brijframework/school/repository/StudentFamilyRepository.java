@@ -13,6 +13,6 @@ import com.brijframework.school.domain.student.StudentFamily;
 @Transactional
 public interface StudentFamilyRepository extends JpaRepository<StudentFamily, Long> {
 
-	Optional<List<StudentFamily>> findByStudentDetailId(Long studentDetailId);
+	Optional<List<StudentFamily>> findByStudentProfileId(Long studentDetailId);
 
 }

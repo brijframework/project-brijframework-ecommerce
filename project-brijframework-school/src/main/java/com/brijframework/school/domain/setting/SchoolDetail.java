@@ -14,7 +14,7 @@ import com.brijframework.school.domain.employee.EmployeeDetail;
 import com.brijframework.school.domain.location.Address;
 import com.brijframework.school.domain.student.StudentAdmission;
 import com.brijframework.school.domain.student.StudentDetail;
-import com.brijframework.school.domain.student.StudentInformation;
+import com.brijframework.school.domain.student.StudentRegistration;
 
 @SuppressWarnings("serial")
 @Entity
@@ -38,7 +38,7 @@ public class SchoolDetail extends EntityObject<Long> {
 	private List<ClassDetail> classDetailList;
 
 	@OneToMany(mappedBy = "schoolDetail")
-	private List<StudentInformation> studentInformationList;
+	private List<StudentRegistration> studentRegistrationList;
 
 	@OneToMany(mappedBy = "schoolDetail")
 	private List<StudentAdmission> studentAdmissionList;
@@ -89,12 +89,12 @@ public class SchoolDetail extends EntityObject<Long> {
 		this.classDetailList = classDetailList;
 	}
 
-	public List<StudentInformation> getStudentInformationList() {
-		return studentInformationList;
+	public List<StudentRegistration> getStudentRegistrationList() {
+		return studentRegistrationList;
 	}
 
-	public void setStudentInformationList(List<StudentInformation> studentInformationList) {
-		this.studentInformationList = studentInformationList;
+	public void setStudentRegistrationList(List<StudentRegistration> studentRegistrationList) {
+		this.studentRegistrationList = studentRegistrationList;
 	}
 
 	public List<StudentAdmission> getStudentAdmissionList() {

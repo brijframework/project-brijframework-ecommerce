@@ -20,18 +20,18 @@ public class StudentDocument extends EntityObject<Long> {
 
 	@JoinColumn(name = "STUDENT_DETAIL_ID")
 	@ManyToOne
-	private StudentDetail studentDetail;
-	
+	private StudentProfile studentProfile;
+
 	@JoinColumn(name = "DOCUMENT_DETAIL_ID")
 	@OneToOne
 	private DocumentDetail documentDetail;
 
-	public StudentDetail getStudentDetail() {
-		return studentDetail;
+	public StudentProfile getStudentProfile() {
+		return studentProfile;
 	}
 
-	public void setStudentDetail(StudentDetail studentDetail) {
-		this.studentDetail = studentDetail;
+	public void setStudentProfile(StudentProfile studentProfile) {
+		this.studentProfile = studentProfile;
 	}
 
 	public DocumentDetail getDocumentDetail() {
