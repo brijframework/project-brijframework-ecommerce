@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.brijframework</groupId>
-	<artifactId>project-brijframework-accounts</artifactId>
+	<artifactId>project-brijframework-profile</artifactId>
 	<version>0.0.1</version>
-	<name>project-brijframework-accounts</name>
-	<description>project-brijframework-accounts</description>
-	<packaging>war</packaging>
+	<name>project-brijframework-profile</name>
+	<description>project-brijframework-profile</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>

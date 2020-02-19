@@ -21,8 +21,9 @@
 	<url>http://www.example.com</url>
 
 	<modules>
+		<module>project-brijframework-cloudserver</module>
 		<module>project-brijframework-authorization</module>
-		<module>project-brijframework-accounts</module>
+		<module>project-brijframework-profile</module>
 		<module>project-brijframework-application</module>
 		<module>project-brijframework-inventory</module>
 		<module>project-brijframework-school</module>

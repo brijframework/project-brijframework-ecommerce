@@ -1,4 +1,4 @@
-package com.brijframework.ecommerce;
+package com.brijframework.cloudserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
