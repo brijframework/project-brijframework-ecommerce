@@ -1,4 +1,4 @@
-package com.brijframework.useraccount.beans;
+package com.brijframwork.authorization.bean;
 
 public class TokenDTO {
 

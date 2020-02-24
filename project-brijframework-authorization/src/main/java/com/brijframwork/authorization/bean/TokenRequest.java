@@ -1,6 +1,6 @@
-package com.brijframework.useraccount.beans.rqrs;
+package com.brijframwork.authorization.bean;
 
-public class LoginRequest {
+public class TokenRequest {
 
 	private String username;
 
@@ -21,5 +21,4 @@ public class LoginRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 }

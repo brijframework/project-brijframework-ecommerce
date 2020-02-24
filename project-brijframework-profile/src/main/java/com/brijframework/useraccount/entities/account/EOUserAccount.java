@@ -1,30 +1,22 @@
-package com.brijframework.useraccount.entities;
-
-import java.io.Serializable;
+package com.brijframework.useraccount.entities.account;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.brijframework.useraccount.entities.EntityObject;
+
 @Entity
 @Table(name = "USER_ACCOUNT", uniqueConstraints= {@UniqueConstraint(columnNames = { "USERNAME" })})
-public class EOUserAccount implements Serializable {
+public class EOUserAccount extends EntityObject<Long> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
-	private long id;
 
 	@Column(name = "USERNAME")
 	private String username;
@@ -42,17 +34,8 @@ public class EOUserAccount implements Serializable {
 	@JoinColumn(name = "ROLE_ID")
 	private EOUserRole userRole;
 
-	@OneToOne
-	@JoinColumn(name = "PROFILE_ID")
+	@OneToOne(mappedBy = "userAccount")
 	private EOUserProfile userProfile;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getUsername() {
 		return username;
@@ -104,7 +87,7 @@ public class EOUserAccount implements Serializable {
 
 	@Override
 	public String toString() {
-		return "EOUserLogin [id=" + id + ", username=" + username + ", password=" + password + ", accountName="
+		return "EOUserLogin [id=" + getId() + ", username=" + username + ", password=" + password + ", accountName="
 				+ accountName + ", type=" + type + ", userRole=" + userRole + ", userProfile=" + userProfile + "]";
 	}
 	

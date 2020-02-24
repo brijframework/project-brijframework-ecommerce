@@ -8,11 +8,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.brijframework.useraccount.entities.EOUserAccount;
+import com.brijframework.useraccount.entities.account.EOUserAccount;
 
 @Repository
 @Transactional
-public interface UserLoginRepository  extends JpaRepository<EOUserAccount, Long>{
+public interface UserAccountRepository  extends JpaRepository<EOUserAccount, Long>{
 
 	@Query("select u from EOUserAccount u where u.username = :username")
 	Optional<EOUserAccount> findUserName(@Param("username")String username);

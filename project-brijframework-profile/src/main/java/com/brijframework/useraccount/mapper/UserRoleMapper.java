@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import com.brijframework.useraccount.beans.EOUserRoleDTO;
 import com.brijframework.useraccount.beans.rqrs.UserRoleRequest;
 import com.brijframework.useraccount.beans.rqrs.UserRoleResponse;
-import com.brijframework.useraccount.entities.EOUserRole;
+import com.brijframework.useraccount.entities.account.EOUserRole;
 
 @Mapper(componentModel = "spring", implementationPackage = "com.brijframework.useraccount.mapper.impl")
 public interface UserRoleMapper extends GenericMapper<EOUserRole, EOUserRoleDTO>{

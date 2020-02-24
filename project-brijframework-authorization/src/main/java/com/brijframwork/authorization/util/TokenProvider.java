@@ -1,4 +1,4 @@
-package com.brijframework.useraccount.config;
+package com.brijframwork.authorization.util;
 
 import static com.brijframework.useraccount.constant.Constants.*;
 

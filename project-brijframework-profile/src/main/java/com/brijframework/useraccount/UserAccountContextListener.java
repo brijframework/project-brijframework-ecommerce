@@ -6,7 +6,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import com.brijframework.useraccount.constant.UserRole;
-import com.brijframework.useraccount.entities.EOUserRole;
+import com.brijframework.useraccount.entities.account.EOUserRole;
 import com.brijframework.useraccount.repository.UserRoleRepository;
 
 @Component

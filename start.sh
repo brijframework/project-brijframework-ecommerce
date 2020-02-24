@@ -8,7 +8,5 @@ echo $r
 
 exec &> logfile.txt
 
-# project-brijframework-authorization
-cd $r/project-brijframework-authorization
-echo "Starting run project-brijframework-authorization..."
+echo "Starting run project-brijframework-ecommerce..."
 mvn spring-boot:run

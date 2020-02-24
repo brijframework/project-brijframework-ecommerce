@@ -1,4 +1,4 @@
-package com.brijframework.useraccount.controller;
+package com.brijframwork.authorization.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brijframework.useraccount.beans.TokenDTO;
-import com.brijframework.useraccount.beans.rqrs.LoginRequest;
-import com.brijframework.useraccount.config.TokenProvider;
+import com.brijframwork.authorization.bean.TokenDTO;
+import com.brijframwork.authorization.bean.TokenRequest;
+import com.brijframwork.authorization.util.TokenProvider;
 
 @RestController
-@RequestMapping("/api/authentication")
+@RequestMapping("/api/auth/token")
 public class AuthenticationController {
 
     @Autowired
@@ -26,22 +26,22 @@ public class AuthenticationController {
     @Autowired
     private TokenProvider jwtTokenUtil;
 
-    @RequestMapping(value = "/token/generate", method = RequestMethod.POST)
-    public ResponseEntity<?> generateToken(@RequestBody LoginRequest loginUser) throws AuthenticationException {
+    @RequestMapping(value = "/generate", method = RequestMethod.POST)
+    public ResponseEntity<?> generateToken(@RequestBody TokenRequest tokenRequest) throws AuthenticationException {
     	 Authentication authentication= authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword()) 
+                new UsernamePasswordAuthenticationToken(tokenRequest.getUsername(), tokenRequest.getPassword()) 
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final String token = jwtTokenUtil.generateToken(authentication);
         return ResponseEntity.ok(token);
     }
 
-    @RequestMapping(value = "/token/validate", method = RequestMethod.POST)
+    @RequestMapping(value = "/validate", method = RequestMethod.POST)
     public ResponseEntity<?> validateToken(@RequestBody TokenDTO tokenDTO) throws AuthenticationException {
     	return ResponseEntity.ok(jwtTokenUtil.validateToken(tokenDTO.getToken()));
     }
     
-    @RequestMapping(value = "/token/expired", method = RequestMethod.POST)
+    @RequestMapping(value = "/expired", method = RequestMethod.POST)
     public ResponseEntity<?> expiredToken(@RequestBody TokenDTO tokenDTO) throws AuthenticationException {
     	return ResponseEntity.ok(jwtTokenUtil.getTokenExpired(tokenDTO.getToken()));
     }
