@@ -1,21 +1,16 @@
 package com.brijframework.useraccount.beans;
 
-public class EOUserProfileDTO {
+public class EOUserProfileDTO extends AbstractDTO<Long> {
 
-	private long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String title;
 	private String firstName;
 	private String lastName;
 	private String preferredName;
 	private String pictureURL;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getTitle() {
 		return title;

@@ -1,8 +1,11 @@
 package com.brijframework.useraccount.beans;
 
-public class EOUserLoginDTO {
+public class EOUserLoginDTO extends AbstractDTO<Long> {
 
-	private long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String username;
 
@@ -11,14 +14,6 @@ public class EOUserLoginDTO {
 	private EOUserRoleDTO role;
 	
 	private String type;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getUsername() {
 		return username;

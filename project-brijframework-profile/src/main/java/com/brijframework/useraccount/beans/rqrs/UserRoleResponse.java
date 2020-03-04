@@ -1,22 +1,19 @@
 package com.brijframework.useraccount.beans.rqrs;
 
-public class UserRoleResponse {
+import com.brijframework.useraccount.beans.AbstractDTO;
 
-	private long id;
+public class UserRoleResponse extends AbstractDTO<Long> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private int position;
 
 	private String roleName;
 
 	private String roleId;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public int getPosition() {
 		return position;

@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.brijframework.useraccount.entities.EntityObject;
-import com.brijframework.useraccount.entities.document.EOImgDetail;
+import com.brijframework.useraccount.entities.global.EODocumentDetail;
 import com.brijframework.useraccount.entities.global.EOGenderDetail;
 
 @Entity
@@ -46,7 +46,7 @@ public class EOUserProfile extends EntityObject<Long> {
 
 	@JoinColumn(name = "PICTURE_DETAIL_ID")
 	@OneToOne
-	private EOImgDetail pictureDetail;
+	private EODocumentDetail pictureDetail;
 
 	@JoinColumn(name = "USER_GENDER_ID")
 	@OneToOne
@@ -65,6 +65,12 @@ public class EOUserProfile extends EntityObject<Long> {
 	
 	@OneToMany(mappedBy = "userProfile")
 	private List<EOUserAddress> addressDetails;
+	
+	@OneToMany(mappedBy = "userProfile")
+	private List<EOUserEducation> educationDetails;
+	
+	@OneToMany(mappedBy = "userProfile")
+	private List<EOUserDocument> documentDetails;
 
 	public String getTitle() {
 		return title;
@@ -114,11 +120,11 @@ public class EOUserProfile extends EntityObject<Long> {
 		this.middleName = middleName;
 	}
 
-	public EOImgDetail getPictureDetail() {
+	public EODocumentDetail getPictureDetail() {
 		return pictureDetail;
 	}
 
-	public void setPictureDetail(EOImgDetail pictureDetail) {
+	public void setPictureDetail(EODocumentDetail pictureDetail) {
 		this.pictureDetail = pictureDetail;
 	}
 
@@ -146,4 +152,36 @@ public class EOUserProfile extends EntityObject<Long> {
 		this.pictureDetails = pictureDetails;
 	}
 
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public List<EOUserAddress> getAddressDetails() {
+		return addressDetails;
+	}
+
+	public void setAddressDetails(List<EOUserAddress> addressDetails) {
+		this.addressDetails = addressDetails;
+	}
+
+	public List<EOUserEducation> getEducationDetails() {
+		return educationDetails;
+	}
+
+	public void setEducationDetails(List<EOUserEducation> educationDetails) {
+		this.educationDetails = educationDetails;
+	}
+
+	public List<EOUserDocument> getDocumentDetails() {
+		return documentDetails;
+	}
+
+	public void setDocumentDetails(List<EOUserDocument> documentDetails) {
+		this.documentDetails = documentDetails;
+	}
+	
 }

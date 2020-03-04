@@ -2,9 +2,14 @@ package com.brijframework.useraccount.beans.rqrs;
 
 import javax.validation.constraints.NotEmpty;
 
-public class UserAccountRequest {
+import com.brijframework.useraccount.beans.AbstractDTO;
 
-	private long accountId;
+public class UserAccountRequest extends AbstractDTO<Long> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@NotEmpty
 	private String type;
@@ -14,14 +19,6 @@ public class UserAccountRequest {
 
 	@NotEmpty
 	private String password;
-
-	public long getAccountId() {
-		return accountId;
-	}
-
-	public void setAccountId(long accountId) {
-		this.accountId = accountId;
-	}
 
 	public String getType() {
 		return type;

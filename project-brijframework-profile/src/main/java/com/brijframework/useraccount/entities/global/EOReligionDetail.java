@@ -20,6 +20,9 @@ public class EOReligionDetail extends EntityObject<Long> {
 	@Column(name = "RELIGION_NAME")
 	private String religionName;
 	
+	@Column(name = "RELIGION_DESC")
+	private String religionDesc;
+	
 	@OneToMany(mappedBy = "religion")
 	private List<EOCasteDetail> castes;
 			
@@ -29,6 +32,14 @@ public class EOReligionDetail extends EntityObject<Long> {
 
 	public void setReligionName(String religionName) {
 		this.religionName = religionName;
+	}
+
+	public String getReligionDesc() {
+		return religionDesc;
+	}
+
+	public void setReligionDesc(String religionDesc) {
+		this.religionDesc = religionDesc;
 	}
 
 	public List<EOCasteDetail> getCastes() {

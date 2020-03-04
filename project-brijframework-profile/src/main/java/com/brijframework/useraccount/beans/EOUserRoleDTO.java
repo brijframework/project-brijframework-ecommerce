@@ -1,22 +1,16 @@
 package com.brijframework.useraccount.beans;
 
-public class EOUserRoleDTO {
-
-	private long id;
+public class EOUserRoleDTO extends AbstractDTO<Long> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private int position;
 
 	private String roleName;
 
 	private String roleID;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public int getPosition() {
 		return position;

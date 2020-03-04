@@ -20,6 +20,9 @@ public class EOCasteDetail extends EntityObject<Long>{
 	@Column(name = "CASTE_NAME")
 	private String casteName;
 	
+	@Column(name = "CASTE_DESC")
+	private String casteDesc;
+	
 	@JoinColumn(name="RELIGION_ID")
 	@ManyToOne
 	private EOReligionDetail religion;
@@ -30,6 +33,14 @@ public class EOCasteDetail extends EntityObject<Long>{
 
 	public void setCasteName(String casteName) {
 		this.casteName = casteName;
+	}
+	
+	public String getCasteDesc() {
+		return casteDesc;
+	}
+
+	public void setCasteDesc(String casteDesc) {
+		this.casteDesc = casteDesc;
 	}
 
 	public EOReligionDetail getReligion() {

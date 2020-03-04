@@ -1,6 +1,8 @@
 package com.brijframwork.authorization.util;
 
-import static com.brijframework.useraccount.constant.Constants.*;
+import static com.brijframwork.authorization.util.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
+import static com.brijframwork.authorization.util.Constants.AUTHORITIES_KEY;
+import static com.brijframwork.authorization.util.Constants.SIGNING_KEY;
 
 import java.io.Serializable;
 import java.util.Arrays;

@@ -7,7 +7,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.brijframework.useraccount.entities.EntityObject;
-import com.brijframework.useraccount.entities.document.EOImgDetail;
+import com.brijframework.useraccount.entities.global.EODocumentDetail;
 
 @Entity
 @Table(name = "USER_IMG_DETAIL")
@@ -20,17 +20,17 @@ public class EOUserImgDetail extends EntityObject<Long> {
 
 	@OneToOne
 	@JoinColumn(name = "IMG_DETAIL_ID")
-	private EOImgDetail imgDetail;
+	private EODocumentDetail imgDetail;
 
 	@ManyToOne
 	@JoinColumn(name = "USER_PROFILE_ID")
 	private EOUserProfile userProfile;
 
-	public EOImgDetail getImgDetail() {
+	public EODocumentDetail getImgDetail() {
 		return imgDetail;
 	}
 
-	public void setImgDetail(EOImgDetail imgDetail) {
+	public void setImgDetail(EODocumentDetail imgDetail) {
 		this.imgDetail = imgDetail;
 	}
 

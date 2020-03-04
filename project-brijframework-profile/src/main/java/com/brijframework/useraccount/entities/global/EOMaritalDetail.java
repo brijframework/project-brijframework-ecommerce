@@ -15,10 +15,10 @@ public class EOMaritalDetail extends EntityObject<Long>{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name = "NAME")
+	@Column(name = "MARITAL_NAME")
 	private String name;
 	
-	@Column(name = "DESCRIPTION")
+	@Column(name = "MARITAL_DESC")
 	private String description;
 
 	public String getName() {

@@ -1,22 +1,19 @@
 package com.brijframework.useraccount.beans.rqrs;
 
-public class UserAccountResponse {
+import com.brijframework.useraccount.beans.AbstractDTO;
 
-	private long accountId;
-	
+public class UserAccountResponse extends AbstractDTO<Long> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String username;
 
 	private String type;
 	
 	private String role;
-	
-	public long getAccountId() {
-		return accountId;
-	}
-
-	public void setAccountId(long accountId) {
-		this.accountId = accountId;
-	}
 
 	public String getUsername() {
 		return username;

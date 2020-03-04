@@ -1,8 +1,14 @@
 package com.brijframework.useraccount.beans.rqrs;
 
-public class UserProfileRequest {
+import com.brijframework.useraccount.beans.AbstractDTO;
 
-	private Long id;
+public class UserProfileRequest extends AbstractDTO<Long> {
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Long accountId;
 
@@ -17,15 +23,7 @@ public class UserProfileRequest {
 	private String preferredName;
 
 	private String dateOfBirth;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	
 	public Long getAccountId() {
 		return accountId;
 	}

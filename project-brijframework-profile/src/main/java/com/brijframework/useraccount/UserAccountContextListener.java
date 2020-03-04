@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.brijframework.useraccount.constant.UserRole;
 import com.brijframework.useraccount.entities.account.EOUserRole;
-import com.brijframework.useraccount.repository.UserRoleRepository;
+import com.brijframework.useraccount.repository.account.UserRoleRepository;
 
 @Component
 public class UserAccountContextListener implements ApplicationListener<ContextRefreshedEvent> {

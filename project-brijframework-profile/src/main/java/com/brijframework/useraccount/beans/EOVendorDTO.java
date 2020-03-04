@@ -1,15 +1,13 @@
 package com.brijframework.useraccount.beans;
 
-public class EOVendorDTO {
+public class EOVendorDTO extends AbstractDTO<Long> {
 
-	private long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+	
 	public String getName() {
 		return name;
 	}
