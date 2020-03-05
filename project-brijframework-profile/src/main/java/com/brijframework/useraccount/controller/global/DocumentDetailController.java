@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.controller.global;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +37,11 @@ public class DocumentDetailController {
 	public DocumentDetailResponse getDocumentDetail(@PathVariable long id) {
 		return documentDetailService.getDocumentDetail(id);
 	}
-	
+
+	@GetMapping
+	public List<DocumentDetailResponse> getDocumentDetailList() {
+		return documentDetailService.getDocumentDetailList();
+	}
 
 	@DeleteMapping("{id}")
 	public boolean deleteDocumentDetail(@PathVariable Long id) {

@@ -1,5 +1,6 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.brijframework.useraccount.beans.rqrs.CountryDetailRequest;
 import com.brijframework.useraccount.beans.rqrs.CountryDetailResponse;
 import com.brijframework.useraccount.entities.global.EOCountryDetail;
-import com.brijframework.useraccount.mapper.global.CountryDetailRQRSMapper;
+import com.brijframework.useraccount.mapper.global.CountryDetailMapper;
 import com.brijframework.useraccount.repository.global.CountryDetailRepository;
 import com.brijframework.useraccount.service.global.CountryDetailService;
 
@@ -19,7 +20,7 @@ public class CountryDetailServiceImpl implements CountryDetailService {
 	private CountryDetailRepository cityDetailRepository;
 	
 	@Autowired
-	private CountryDetailRQRSMapper cityDetailMapper;
+	private CountryDetailMapper cityDetailMapper;
 
 	@Override
 	public CountryDetailResponse saveCountryDetail(CountryDetailRequest cityDetailRequest) {
@@ -44,4 +45,8 @@ public class CountryDetailServiceImpl implements CountryDetailService {
 		return false;
 	}
 
+	@Override
+	public List<CountryDetailResponse> getCountryDetailList() {
+		return cityDetailMapper.mapToDTO(cityDetailRepository.findAll());
+	}
 }

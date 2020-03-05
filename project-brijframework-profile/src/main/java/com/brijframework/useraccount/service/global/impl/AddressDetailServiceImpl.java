@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,15 +23,15 @@ public class AddressDetailServiceImpl implements AddressDetailService{
 	
 	@Override
 	public AddressDetailResponse saveAddressDetail(AddressDetailRequest AddressDetailRequest) {
-		EOAddressDetail eoAddressDetail = addressDetailMapper.mapRequestToDAO(AddressDetailRequest);
+		EOAddressDetail eoAddressDetail = addressDetailMapper.mapToDAO(AddressDetailRequest);
 		eoAddressDetail.setActive(true);
 		eoAddressDetail= addressDetailRepository.save(eoAddressDetail);
-		return addressDetailMapper.mapResponseToDTO(eoAddressDetail);
+		return addressDetailMapper.mapToDTO(eoAddressDetail);
 	}
 
 	@Override
 	public AddressDetailResponse getAddressDetail(long id) {
-		return addressDetailMapper.mapResponseToDTO(addressDetailRepository.findById(id).orElse(null));
+		return addressDetailMapper.mapToDTO(addressDetailRepository.findById(id).orElse(null));
 	}
 
 	@Override
@@ -38,5 +40,10 @@ public class AddressDetailServiceImpl implements AddressDetailService{
 		eoAddressDetail.setActive(false);
 		addressDetailRepository.save(eoAddressDetail);
 		return true;
+	}
+	
+	@Override
+	public List<AddressDetailResponse> getAddressDetailList() {
+		return addressDetailMapper.mapToDTO(addressDetailRepository.findAll());
 	}
 }

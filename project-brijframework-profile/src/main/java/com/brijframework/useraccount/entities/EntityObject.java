@@ -22,24 +22,24 @@ public abstract class EntityObject<T> implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "ID")
 	private T id;
 
-	@Column(name = "created_Uid")
+	@Column(name = "CREATED_UID")
 	private String createdUid;
 
-	@Column(name = "created_at")
+	@Column(name = "CREATED_AT")
 	@CreationTimestamp
 	private Date createdAt;
 
-	@Column(name = "updated_Uid")
+	@Column(name = "UPDATED_UID")
 	private Date updatedUid;
 
-	@Column(name = "updated_at")
+	@Column(name = "UPDATED_AT")
 	@UpdateTimestamp
 	private Date updatedAt;
 
-	@Column(name = "is_active")
+	@Column(name = "IS_ACTIVE")
 	private boolean active;
 
 	public T getId() {

@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,10 @@ public class CasteDetailServiceImpl implements CasteDetailService{
 		eoCasteDetail.setActive(false);
 		CasteDetailRepository.save(eoCasteDetail);
 		return true;
+	}
+
+	@Override
+	public List<CasteDetailResponse> getCasteDetailList() {
+		return CasteDetailMapper.mapToDTO(CasteDetailRepository.findAll());
 	}
 }

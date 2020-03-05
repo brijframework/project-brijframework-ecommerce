@@ -6,36 +6,24 @@ public class EOUserRoleDTO extends AbstractDTO<Long> {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int position;
+	private EORoleDetailDTO roleDetail;
 
-	private String roleName;
+	private EOUserAccountDTO userAccount;
 
-	private String roleID;
-
-	public int getPosition() {
-		return position;
+	public EORoleDetailDTO getRoleDetail() {
+		return roleDetail;
 	}
 
-	public void setPosition(int position) {
-		this.position = position;
+	public void setRoleDetail(EORoleDetailDTO roleDetail) {
+		this.roleDetail = roleDetail;
 	}
 
-	public String getRoleName() {
-		return roleName;
+	public EOUserAccountDTO getUserAccount() {
+		return userAccount;
 	}
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setUserAccount(EOUserAccountDTO userAccount) {
+		this.userAccount = userAccount;
 	}
-
-	public String getRoleID() {
-		return roleID;
-	}
-
-	public void setRoleID(String roleID) {
-		this.roleID = roleID;
-	}
-	
-	
 
 }

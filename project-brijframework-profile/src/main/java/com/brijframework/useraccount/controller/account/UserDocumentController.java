@@ -17,7 +17,7 @@ import com.brijframework.useraccount.beans.rqrs.UserDocumentResponse;
 import com.brijframework.useraccount.service.account.UserDocumentService;
 
 @RestController
-@RequestMapping("api/user/document")
+@RequestMapping("api/user/account/document")
 public class UserDocumentController {
 		
 	@Autowired

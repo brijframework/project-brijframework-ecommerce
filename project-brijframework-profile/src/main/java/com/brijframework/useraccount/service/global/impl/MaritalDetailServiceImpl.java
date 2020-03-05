@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,10 @@ public class MaritalDetailServiceImpl implements MaritalDetailService{
 		eoMaritalDetail.setActive(false);
 		maritalDetailRepository.save(eoMaritalDetail);
 		return true;
+	}
+	
+	@Override
+	public List<MaritalDetailResponse> getMaritalDetailList() {
+		return maritalDetailMapper.mapToDTO(maritalDetailRepository.findAll());
 	}
 }

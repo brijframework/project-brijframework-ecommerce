@@ -6,20 +6,20 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import com.brijframework.useraccount.constant.UserRole;
-import com.brijframework.useraccount.entities.account.EOUserRole;
-import com.brijframework.useraccount.repository.account.UserRoleRepository;
+import com.brijframework.useraccount.entities.global.EORoleDetail;
+import com.brijframework.useraccount.repository.global.RoleDetailRepository;
 
 @Component
 public class UserAccountContextListener implements ApplicationListener<ContextRefreshedEvent> {
 
 	@Autowired
-	private UserRoleRepository userRoleRepo;
+	private RoleDetailRepository roleDetailRepository;
 	
     @Override
     public void onApplicationEvent(final ContextRefreshedEvent event) {
     	for(UserRole userRole : UserRole.values()) {
-    		if(userRoleRepo.findByPosition(userRole.getPosition()) ==null) {
-    			userRoleRepo.saveAndFlush(new EOUserRole(userRole.getPosition(),userRole.getRole(),userRole.getRole()));
+    		if(roleDetailRepository.findByPosition(userRole.getPosition()) ==null) {
+    			roleDetailRepository.saveAndFlush(new EORoleDetail(userRole.getPosition(),userRole.getRole(),userRole.getRole()));
     		}
     	}
     

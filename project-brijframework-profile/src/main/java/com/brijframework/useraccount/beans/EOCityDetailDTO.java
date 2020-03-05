@@ -1,6 +1,6 @@
 package com.brijframework.useraccount.beans;
 
-public class EOCountryDTO extends AbstractDTO<Long>{
+public class EOCityDetailDTO extends AbstractDTO<Long> {
 
 	/**
 	 * 
@@ -8,8 +8,9 @@ public class EOCountryDTO extends AbstractDTO<Long>{
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	
 	private String code;
+
+	private EOStateDetailDTO state;
 
 	public String getName() {
 		return name;
@@ -26,5 +27,13 @@ public class EOCountryDTO extends AbstractDTO<Long>{
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
+	public EOStateDetailDTO getState() {
+		return state;
+	}
+
+	public void setState(EOStateDetailDTO state) {
+		this.state = state;
+	}
+
 }

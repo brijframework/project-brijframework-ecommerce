@@ -1,8 +1,10 @@
 package com.brijframework.useraccount.entities.account;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -30,12 +32,12 @@ public class EOUserAccount extends EntityObject<Long> {
 	@Column(name = "TYPE")
 	private String type;
 
-	@OneToOne
-	@JoinColumn(name = "ROLE_ID")
-	private EOUserRole userRole;
-
 	@OneToOne(mappedBy = "userAccount")
 	private EOUserProfile userProfile;
+
+	@OneToMany(mappedBy = "userAccount")
+	private List<EOUserRole> userRoleList;
+
 
 	public String getUsername() {
 		return username;
@@ -69,14 +71,6 @@ public class EOUserAccount extends EntityObject<Long> {
 		this.password = password;
 	}
 
-	public EOUserRole getUserRole() {
-		return userRole;
-	}
-
-	public void setUserRole(EOUserRole userRole) {
-		this.userRole = userRole;
-	}
-
 	public EOUserProfile getUserProfile() {
 		return userProfile;
 	}
@@ -85,10 +79,18 @@ public class EOUserAccount extends EntityObject<Long> {
 		this.userProfile = userProfile;
 	}
 
+	public List<EOUserRole> getUserRoleList() {
+		return userRoleList;
+	}
+
+	public void setUserRoleList(List<EOUserRole> userRoleList) {
+		this.userRoleList = userRoleList;
+	}
+
 	@Override
 	public String toString() {
 		return "EOUserLogin [id=" + getId() + ", username=" + username + ", password=" + password + ", accountName="
-				+ accountName + ", type=" + type + ", userRole=" + userRole + ", userProfile=" + userProfile + "]";
+				+ accountName + ", type=" + type + ", userProfile=" + userProfile + "]";
 	}
 	
 	

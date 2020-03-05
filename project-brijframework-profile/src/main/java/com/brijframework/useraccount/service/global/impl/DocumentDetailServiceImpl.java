@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,10 @@ public class DocumentDetailServiceImpl implements DocumentDetailService{
 		eoDocumentDetail.setActive(false);
 		imgDetailRepository.save(eoDocumentDetail);
 		return true;
+	}
+	
+	@Override
+	public List<DocumentDetailResponse> getDocumentDetailList() {
+		return imgDetailMapper.mapToDTO(imgDetailRepository.findAll());
 	}
 }

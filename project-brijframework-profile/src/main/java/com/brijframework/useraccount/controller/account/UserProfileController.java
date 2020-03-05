@@ -15,7 +15,7 @@ import com.brijframework.useraccount.beans.rqrs.UserProfileResponse;
 import com.brijframework.useraccount.service.account.UserProfileService;
 
 @RestController
-@RequestMapping("api/user/profile")
+@RequestMapping("api/user/account/profile")
 public class UserProfileController {
 	
 	@Autowired

@@ -17,7 +17,7 @@ import com.brijframework.useraccount.beans.rqrs.UserImgDetailResponse;
 import com.brijframework.useraccount.service.account.UserImgDetailService;
 
 @RestController
-@RequestMapping("api/user/image")
+@RequestMapping("api/user/account/image")
 public class UserImgDetailController {
 		
 	@Autowired

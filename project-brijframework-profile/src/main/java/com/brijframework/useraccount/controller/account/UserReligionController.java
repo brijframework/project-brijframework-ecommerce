@@ -17,7 +17,7 @@ import com.brijframework.useraccount.beans.rqrs.UserReligionResponse;
 import com.brijframework.useraccount.service.account.UserReligionService;
 
 @RestController
-@RequestMapping("api/user/religion")
+@RequestMapping("api/user/account/religion")
 public class UserReligionController {
 		
 	@Autowired

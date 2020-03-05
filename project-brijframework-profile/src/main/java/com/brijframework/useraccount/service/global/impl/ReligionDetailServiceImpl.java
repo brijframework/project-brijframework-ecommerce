@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,10 @@ public class ReligionDetailServiceImpl implements ReligionDetailService{
 		eoReligionDetail.setActive(false);
 		religionDetailRepository.save(eoReligionDetail);
 		return true;
+	}
+	
+	@Override
+	public List<ReligionDetailResponse> getReligionDetailList() {
+		return religionDetailMapper.mapToDTO(religionDetailRepository.findAll());
 	}
 }

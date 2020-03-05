@@ -29,21 +29,21 @@ public class UserAccountServiceImpl implements UserAccountService {
 
 	@Override
 	public UserAccountResponse saveUserAccount(UserAccountRequest userAccountRequest) {
-		EOUserAccount eoUserAccount=userAccountMapper.getUserAccountRequest(userAccountRequest);
-		EOUserRole userRole=userRoleRepository.findByRoleName(UserRole.OWNER.getRole());
-		eoUserAccount.setUserRole(userRole);
+		EOUserAccount eoUserAccount=userAccountMapper.mapToDAO(userAccountRequest);
+		EOUserRole userRole=userRoleRepository.findByRoleDetailRoleName(UserRole.OWNER.getRole());
+		//eoUserAccount.setUserRole(userRole);
 		eoUserAccount=userAccountRepository.save(eoUserAccount);
-		return userAccountMapper.getUserAccountResponse(eoUserAccount);
+		return userAccountMapper.mapToDTO(eoUserAccount);
 	}
 
 	@Override
 	public List<UserAccountResponse> getUserAccountList() {
-		return userAccountMapper.getUserAccountResponse(userAccountRepository.findAll());
+		return userAccountMapper.mapToDTO(userAccountRepository.findAll());
 	}
 
 	@Override
 	public UserAccountResponse getUserAccount(Long id) {
-		return userAccountMapper.getUserAccountResponse(userAccountRepository.findById(id).orElse(null));
+		return userAccountMapper.mapToDTO(userAccountRepository.findById(id).orElse(null));
 	}
 
 	@Override

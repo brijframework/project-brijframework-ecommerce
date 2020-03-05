@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.controller.global;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,8 +37,12 @@ public class CountryDetailController {
 	public CountryDetailResponse getCountryDetail(@PathVariable long id) {
 		return countryDetailService.getCountryDetail(id);
 	}
-	
 
+	@GetMapping
+	public List<CountryDetailResponse> getCountryDetailList() {
+		return countryDetailService.getCountryDetailList();
+	}
+	
 	@DeleteMapping("{id}")
 	public boolean deleteCountryDetail(@PathVariable Long id) {
 		return countryDetailService.deleteCountryDetail(id);

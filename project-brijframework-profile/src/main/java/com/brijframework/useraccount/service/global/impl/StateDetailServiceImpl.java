@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,10 @@ public class StateDetailServiceImpl implements StateDetailService{
 		eoStateDetail.setActive(false);
 		stateDetailRepository.save(eoStateDetail);
 		return true;
+	}
+
+	@Override
+	public List<StateDetailResponse> getStateDetailList() {
+		return stateDetailMapper.mapToDTO(stateDetailRepository.findAll());
 	}
 }

@@ -6,55 +6,25 @@ public class EOUserAddressDTO extends AbstractDTO<Long>{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private EOAddressDetailDTO addressDetail;
 
-	private String addressLine1;
+	private EOUserProfileDTO userProfile;
 
-	private String addressLine2;
-
-	private String landMark;
-
-	private Long zipcode;
-
-	private EOCityDTO city;
-
-	public String getAddressLine1() {
-		return addressLine1;
+	public EOUserProfileDTO getUserProfile() {
+		return userProfile;
 	}
 
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
+	public void setUserProfile(EOUserProfileDTO userProfile) {
+		this.userProfile = userProfile;
 	}
 
-	public String getAddressLine2() {
-		return addressLine2;
+	public EOAddressDetailDTO getAddressDetail() {
+		return addressDetail;
 	}
 
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
-	}
-
-	public String getLandMark() {
-		return landMark;
-	}
-
-	public void setLandMark(String landMark) {
-		this.landMark = landMark;
-	}
-
-	public Long getZipcode() {
-		return zipcode;
-	}
-
-	public void setZipcode(Long zipcode) {
-		this.zipcode = zipcode;
-	}
-
-	public EOCityDTO getCity() {
-		return city;
-	}
-
-	public void setCity(EOCityDTO city) {
-		this.city = city;
+	public void setAddressDetail(EOAddressDetailDTO addressDetail) {
+		this.addressDetail = addressDetail;
 	}
 
 }

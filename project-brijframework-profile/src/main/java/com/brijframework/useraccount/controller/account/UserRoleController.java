@@ -17,7 +17,7 @@ import com.brijframework.useraccount.beans.rqrs.UserRoleResponse;
 import com.brijframework.useraccount.service.account.UserRoleService;
 
 @RestController
-@RequestMapping("api/user/role")
+@RequestMapping("api/user/account/role")
 public class UserRoleController {
 		
 	@Autowired

@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.controller.global;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +38,10 @@ public class CityDetailController {
 		return cityDetailService.getCityDetail(id);
 	}
 	
+	@GetMapping
+	public List<CityDetailResponse> getCityDetailList() {
+		return cityDetailService.getCityDetailList();
+	}
 
 	@DeleteMapping("{id}")
 	public boolean deleteCityDetail(@PathVariable Long id) {

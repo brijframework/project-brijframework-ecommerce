@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.controller.global;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,11 @@ public class MaritalDetailController {
 	@GetMapping("{id}")
 	public MaritalDetailResponse getMaritalDetail(@PathVariable long id) {
 		return maritalDetailService.getMaritalDetail(id);
+	}
+
+	@GetMapping
+	public List<MaritalDetailResponse> getMaritalDetailList() {
+		return maritalDetailService.getMaritalDetailList();
 	}
 
 	@DeleteMapping("{id}")

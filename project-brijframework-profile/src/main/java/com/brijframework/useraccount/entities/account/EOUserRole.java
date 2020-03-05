@@ -1,13 +1,13 @@
 package com.brijframework.useraccount.entities.account;
 
-import java.util.List;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.brijframework.useraccount.entities.EntityObject;
+import com.brijframework.useraccount.entities.global.EORoleDetail;
 
 @Entity
 @Table(name = "USER_ROLE")
@@ -15,64 +15,28 @@ public class EOUserRole extends EntityObject<Long> {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "POSITION")
-	private int position;
+	@OneToOne()
+	@JoinColumn(name = "ROLE_ID")
+	private EORoleDetail roleDetail;
 
-	@Column(name = "ROLE_NAME")
-	private String roleName;
+	@ManyToOne()
+	@JoinColumn(name = "ACCOUNT_ID")
+	private EOUserAccount userAccount;
 
-	@Column(name = "ROLE_ID")
-	private String roleId;
-
-	@OneToMany(mappedBy = "userRole")
-	private List<EOUserAccount> userAccounts;
-	
-	public EOUserRole() {
+	public EORoleDetail getRoleDetail() {
+		return roleDetail;
 	}
 
-	public EOUserRole(int position, String roleName, String roleId) {
-		super();
-		this.position = position;
-		this.roleName = roleName;
-		this.roleId = roleId;
+	public void setRoleDetail(EORoleDetail roleDetail) {
+		this.roleDetail = roleDetail;
 	}
 
-	public int getPosition() {
-		return position;
+	public EOUserAccount getUserAccount() {
+		return userAccount;
 	}
 
-	public void setPosition(int position) {
-		this.position = position;
+	public void setUserAccount(EOUserAccount userAccount) {
+		this.userAccount = userAccount;
 	}
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public String getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(String roleID) {
-		this.roleId = roleID;
-	}
-
-	public List<EOUserAccount> getUserAccounts() {
-		return userAccounts;
-	}
-
-	public void setUserAccounts(List<EOUserAccount> userAccounts) {
-		this.userAccounts = userAccounts;
-	}
-
-	@Override
-	public String toString() {
-		return "EOUserRole [id=" + getId() + ", position=" + position + ", roleName=" + roleName + ", roleID=" + roleId;
-	}
-
 	
 }

@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.common.collect.Lists;
-
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -27,7 +25,11 @@ public class SwaggerConfig {
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.withClassAnnotation(RestController.class)).paths(PathSelectors.any())
-				.build().apiInfo(apiInfo()).securityContexts(Lists.newArrayList(securityContext())).securitySchemes(Lists.newArrayList(apiKey())).forCodeGeneration(true);
+				.build().apiInfo(apiInfo())/*
+											 * .securityContexts(Lists.newArrayList(securityContext())).securitySchemes(
+											 * Lists.newArrayList(apiKey()))
+											 */.forCodeGeneration(true);
+		
 	}
 
 	private ApiInfo apiInfo() {

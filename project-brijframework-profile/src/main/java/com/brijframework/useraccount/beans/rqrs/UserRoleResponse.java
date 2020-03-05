@@ -9,34 +9,24 @@ public class UserRoleResponse extends AbstractDTO<Long> {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int position;
+	private Long roleId;
 
-	private String roleName;
+	private Long accountId;
 
-	private String roleId;
-
-	public int getPosition() {
-		return position;
-	}
-
-	public void setPosition(int position) {
-		this.position = position;
-	}
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public String getRoleId() {
+	public Long getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(String roleId) {
+	public void setRoleId(Long roleId) {
 		this.roleId = roleId;
+	}
+
+	public Long getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(Long accountId) {
+		this.accountId = accountId;
 	}
 
 }

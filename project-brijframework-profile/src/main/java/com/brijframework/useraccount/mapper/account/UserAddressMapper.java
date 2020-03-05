@@ -7,15 +7,15 @@ import com.brijframework.useraccount.beans.EOUserAddressDTO;
 import com.brijframework.useraccount.beans.rqrs.UserAddressRequest;
 import com.brijframework.useraccount.beans.rqrs.UserAddressResponse;
 import com.brijframework.useraccount.entities.account.EOUserAddress;
-import com.brijframework.useraccount.mapper.GenericMapper;
+import com.brijframework.useraccount.mapper.RQRSMapper;
 
 @Mapper(componentModel = "spring", implementationPackage = "com.brijframework.useraccount.mapper.impl")
-public interface UserAddressMapper extends GenericMapper<EOUserAddress, EOUserAddressDTO>{
+public interface UserAddressMapper extends RQRSMapper<UserAddressRequest, EOUserAddress, EOUserAddressDTO, UserAddressResponse>{
 
 	@Mapping(source = "profileId", target = "userProfile.id")
-	EOUserAddress mapRequestToDAO(UserAddressRequest userAddressRequest);
+	EOUserAddress mapToDAO(UserAddressRequest userAddressRequest);
 
 	@Mapping(target = "profileId", source = "userProfile.id")
-	UserAddressResponse mapResponseToDTO(EOUserAddress eoUserAddress);
-
+	UserAddressResponse mapToDTO(EOUserAddress eoUserAddress);
+	
 }

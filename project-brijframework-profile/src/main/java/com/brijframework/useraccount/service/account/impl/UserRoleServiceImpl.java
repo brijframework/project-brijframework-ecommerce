@@ -23,18 +23,18 @@ public class UserRoleServiceImpl implements UserRoleService {
 	
 	@Override
 	public UserRoleResponse saveUserRole(UserRoleRequest roleRequest) {
-		EOUserRole eoUserRole=userRoleMapper.getUserRoleRequest(roleRequest);
-		return userRoleMapper.getUserRoleResponse(userRoleRepo.save(eoUserRole));
+		EOUserRole eoUserRole=userRoleMapper.mapToDAO(roleRequest);
+		return userRoleMapper.mapToDTO(userRoleRepo.save(eoUserRole));
 	}
 
 	@Override
 	public List<UserRoleResponse> getUserRoleList() {
-		return userRoleMapper.getUserRoleResponse(userRoleRepo.findAll());
+		return userRoleMapper.mapToDTO(userRoleRepo.findAll());
 	}
 
 	@Override
 	public UserRoleResponse getUserRole(Long id) {
-		return userRoleMapper.getUserRoleResponse(userRoleRepo.findById(id).orElseGet(null));
+		return userRoleMapper.mapToDTO(userRoleRepo.findById(id).orElseGet(null));
 	}
 
 	@Override

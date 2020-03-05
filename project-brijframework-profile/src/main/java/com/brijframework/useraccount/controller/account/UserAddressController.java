@@ -15,7 +15,7 @@ import com.brijframework.useraccount.beans.rqrs.UserAddressResponse;
 import com.brijframework.useraccount.service.account.UserAddressService;
 
 @RestController
-@RequestMapping("api/user/address")
+@RequestMapping("api/user/account/address")
 public class UserAddressController {
 	
 	@Autowired

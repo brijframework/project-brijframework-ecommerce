@@ -1,5 +1,7 @@
 package com.brijframework.useraccount.service.global.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,10 @@ public class GenderDetailServiceImpl implements GenderDetailService{
 		eoGenderDetail.setActive(false);
 		genderDetailRepository.save(eoGenderDetail);
 		return true;
+	}
+	
+	@Override
+	public List<GenderDetailResponse> getGenderDetailList() {
+		return genderDetailMapper.mapToDTO(genderDetailRepository.findAll());
 	}
 }

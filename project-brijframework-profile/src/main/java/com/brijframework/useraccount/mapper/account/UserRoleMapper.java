@@ -1,24 +1,24 @@
 package com.brijframework.useraccount.mapper.account;
 
-import java.util.List;
-
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import com.brijframework.useraccount.beans.EOUserRoleDTO;
 import com.brijframework.useraccount.beans.rqrs.UserRoleRequest;
 import com.brijframework.useraccount.beans.rqrs.UserRoleResponse;
 import com.brijframework.useraccount.entities.account.EOUserRole;
-import com.brijframework.useraccount.mapper.GenericMapper;
+import com.brijframework.useraccount.mapper.RQRSMapper;
 
 @Mapper(componentModel = "spring", implementationPackage = "com.brijframework.useraccount.mapper.impl")
-public interface UserRoleMapper extends GenericMapper<EOUserRole, EOUserRoleDTO>{
+public interface UserRoleMapper extends RQRSMapper<UserRoleRequest, EOUserRole, EOUserRoleDTO,  UserRoleResponse> {
 
-	List<EOUserRole> getUserRoleRequest(List<UserRoleRequest> roleRequest);
+	@Mapping(target = "userAccount.id", source = "accountId")
+	@Mapping(target = "roleDetail.id", source = "roleId")
+	@Override
+	EOUserRole mapToDAO(UserRoleRequest eoRoleDTO) ;
 	
-	EOUserRole getUserRoleRequest(UserRoleRequest roleRequest);
-	
-	List<UserRoleResponse> getUserRoleResponse(List<EOUserRole> eoUserRole);
-	
-	UserRoleResponse getUserRoleResponse(EOUserRole eoUserRole);
-
+	@Mapping(source = "userAccount.id", target = "accountId")
+	@Mapping(source = "roleDetail.id", target = "roleId")
+	@Override
+	UserRoleResponse mapToDTO(EOUserRole eoRole);
 }

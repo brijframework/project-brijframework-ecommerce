@@ -30,7 +30,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("client")
-                .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
+                .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit","client_credentials")
                 .scopes("read", "write")
                 .autoApprove(true)
                 .secret(passwordEncoder.encode("password"));
