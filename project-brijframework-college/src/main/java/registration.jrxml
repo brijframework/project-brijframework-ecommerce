@@ -60,11 +60,11 @@
 	<field name="religionName" class="java.lang.String"/>
 
 		<background>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</background>
 		<title>
-			<band height="83"  splitType="true" >
+			<band height="83"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="118"
@@ -110,15 +110,15 @@
 			</band>
 		</title>
 		<pageHeader>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="528"  splitType="true" >
+			<band height="528"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="6"
@@ -947,15 +947,15 @@
 			</band>
 		</detail>
 		<columnFooter>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</columnFooter>
 		<pageFooter>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</pageFooter>
 		<summary>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</summary>
 </jasperReport>

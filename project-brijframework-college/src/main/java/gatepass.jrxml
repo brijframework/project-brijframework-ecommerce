@@ -43,19 +43,19 @@
 	<field name="gatepass" class="java.lang.String"/>
 
 		<background>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</background>
 		<title>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</title>
 		<pageHeader>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="92"  splitType="true" >
+			<band height="92"  isSplitAllowed="true" >
 				<image  evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="27"
@@ -178,7 +178,7 @@
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="358"  splitType="true" >
+			<band height="358"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="33"
@@ -773,15 +773,15 @@
 			</band>
 		</detail>
 		<columnFooter>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</columnFooter>
 		<pageFooter>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</pageFooter>
 		<summary>
-			<band height="1"  splitType="true" >
+			<band height="1"  isSplitAllowed="true" >
 			</band>
 		</summary>
 </jasperReport>

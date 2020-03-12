@@ -46,11 +46,11 @@
 	<field name="imageName" class="java.lang.String"/>
 
 		<background>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</background>
 		<title>
-			<band height="50"  splitType="true" >
+			<band height="50"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="216"
@@ -67,7 +67,7 @@
 			</band>
 		</title>
 		<pageHeader>
-			<band height="135"  splitType="true" >
+			<band height="135"  isSplitAllowed="true" >
 				<image  vAlign="Middle" hAlign="Center" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="57"
@@ -169,7 +169,7 @@
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="26"  splitType="true" >
+			<band height="26"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="57"
@@ -186,7 +186,7 @@
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="347"  splitType="true" >
+			<band height="347"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="57"
@@ -598,15 +598,15 @@
 			</band>
 		</detail>
 		<columnFooter>
-			<band height="1"  splitType="true" >
+			<band height="1"  isSplitAllowed="true" >
 			</band>
 		</columnFooter>
 		<pageFooter>
-			<band height="2"  splitType="true" >
+			<band height="2"  isSplitAllowed="true" >
 			</band>
 		</pageFooter>
 		<summary>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</summary>
 </jasperReport>

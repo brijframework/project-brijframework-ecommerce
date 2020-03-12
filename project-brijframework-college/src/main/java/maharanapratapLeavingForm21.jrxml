@@ -48,15 +48,15 @@
 	<field name="logo" class="java.lang.String"/>
 
 		<background>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</background>
 		<title>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</title>
 		<pageHeader>
-			<band height="71"  splitType="true" >
+			<band height="71"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="455"
@@ -97,7 +97,7 @@
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="75"  splitType="true" >
+			<band height="75"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="118"
@@ -127,7 +127,7 @@
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="346"  splitType="true" >
+			<band height="346"  isSplitAllowed="true" >
 				<rectangle>
 					<reportElement
 						x="157"
@@ -570,15 +570,15 @@
 			</band>
 		</detail>
 		<columnFooter>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</columnFooter>
 		<pageFooter>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</pageFooter>
 		<summary>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</summary>
 </jasperReport>

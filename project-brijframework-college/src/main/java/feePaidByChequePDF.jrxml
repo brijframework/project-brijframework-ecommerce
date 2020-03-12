@@ -36,19 +36,19 @@
 	<field name="todayDate" class="java.lang.String"/>
 
 		<background>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</background>
 		<title>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</title>
 		<pageHeader>
-			<band height="2"  splitType="true" >
+			<band height="2"  isSplitAllowed="true" >
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="114"  splitType="true" >
+			<band height="114"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						mode="Transparent"
@@ -216,7 +216,7 @@
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="36"  splitType="true" >
+			<band height="36"  isSplitAllowed="true" >
 				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="7"
@@ -333,7 +333,7 @@
 			</band>
 		</detail>
 		<columnFooter>
-			<band height="28"  splitType="true" >
+			<band height="28"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						x="258"
@@ -363,11 +363,11 @@
 			</band>
 		</columnFooter>
 		<pageFooter>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</pageFooter>
 		<summary>
-			<band height="0"  splitType="true" >
+			<band height="0"  isSplitAllowed="true" >
 			</band>
 		</summary>
 </jasperReport>
