@@ -10,8 +10,8 @@ import com.brijframework.useraccount.entities.account.EOUserRole;
 @Transactional
 public interface UserRoleRepository  extends JpaRepository<EOUserRole, Long>{
 
-	EOUserRole findByRoleDetailRoleName(String role);
+	EOUserRole findByUserAccountIdAndRoleDetailRoleName(Long accountId,String role);
 	
-	EOUserRole findByRoleDetailPosition(int position);
+	EOUserRole findByUserAccountIdAndRoleDetailPosition(Long accountId,int position);
 
 }

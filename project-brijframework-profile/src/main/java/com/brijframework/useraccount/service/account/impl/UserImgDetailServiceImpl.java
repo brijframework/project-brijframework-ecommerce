@@ -28,6 +28,7 @@ public class UserImgDetailServiceImpl implements UserImgDetailService{
 	@Override
 	public UserImgDetailResponse saveUserImgDetail(UserImgDetailRequest userImgDetailRequest) {
 		EOUserImgDetail eoUserImgDetail = userImgDetailMapper.mapRequestToDAO(userImgDetailRequest);
+		eoUserImgDetail.setActive(true);
 		eoUserImgDetail.setImgDetail(imgDetailRepository.save(eoUserImgDetail.getImgDetail()));
 		eoUserImgDetail= userImgDetailRepository.save(eoUserImgDetail);
 		return userImgDetailMapper.mapResponseToDTO(eoUserImgDetail);

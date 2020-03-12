@@ -41,10 +41,9 @@ public class EOUserAccount implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "ROLE_ID")
 	private EOUserRole userRole;
-
-	@OneToOne
-	@JoinColumn(name = "PROFILE_ID")
-	private EOUserProfile userProfile;
+	
+	@Column(name = "PROFILE_ID")
+	private long profileId;
 
 	public long getId() {
 		return id;
@@ -52,6 +51,14 @@ public class EOUserAccount implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public long getProfileId() {
+		return profileId;
+	}
+
+	public void setProfileId(long profileId) {
+		this.profileId = profileId;
 	}
 
 	public String getUsername() {
@@ -94,18 +101,10 @@ public class EOUserAccount implements Serializable {
 		this.userRole = userRole;
 	}
 
-	public EOUserProfile getUserProfile() {
-		return userProfile;
-	}
-
-	public void setUserProfile(EOUserProfile userProfile) {
-		this.userProfile = userProfile;
-	}
-
 	@Override
 	public String toString() {
 		return "EOUserLogin [id=" + id + ", username=" + username + ", password=" + password + ", accountName="
-				+ accountName + ", type=" + type + ", userRole=" + userRole + ", userProfile=" + userProfile + "]";
+				+ accountName + ", type=" + type + ", userRole=" + userRole  + "]";
 	}
 	
 	

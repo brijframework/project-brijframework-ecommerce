@@ -25,6 +25,7 @@ public class UserReligionServiceImpl implements UserReligionService {
 	public UserReligionResponse saveUserReligion(UserReligionRequest userAccountRequest) {
 		EOUserReligion eoUserReligion=userAccountMapper.mapToDAO(userAccountRequest);
 		eoUserReligion=userAccountRepository.save(eoUserReligion);
+		eoUserReligion.setActive(true);
 		return userAccountMapper.mapToDTO(eoUserReligion);
 	}
 

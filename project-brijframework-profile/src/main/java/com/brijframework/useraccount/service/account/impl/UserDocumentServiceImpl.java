@@ -28,6 +28,7 @@ public class UserDocumentServiceImpl implements UserDocumentService{
 	@Override
 	public UserDocumentResponse saveUserDocument(UserDocumentRequest userDocumentDetailRequest) {
 		EOUserDocument eoUserDocumentDetail = userDocumentMapper.mapToDAO(userDocumentDetailRequest);
+		eoUserDocumentDetail.setActive(true);
 		eoUserDocumentDetail.setDocumentDetail(documentDetailRepository.save(eoUserDocumentDetail.getDocumentDetail()));
 		eoUserDocumentDetail= userDocumentDetailRepository.save(eoUserDocumentDetail);
 		return userDocumentMapper.mapToDTO(eoUserDocumentDetail);

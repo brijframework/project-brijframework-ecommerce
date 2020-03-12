@@ -26,6 +26,7 @@ public class UserAddressServiceImpl implements UserAddressService {
 	@Override
 	public UserAddressResponse saveUserAddress(UserAddressRequest userAddressRequest) {
 		EOUserAddress eoUserAddress = userAddressMapper.mapToDAO(userAddressRequest);
+		eoUserAddress.setActive(true);
 		eoUserAddress.setAddressDetail(addressRepository.save(eoUserAddress.getAddressDetail()));
 		eoUserAddress= userAddressRepository.save(eoUserAddress);
 		return userAddressMapper.mapToDTO(eoUserAddress);

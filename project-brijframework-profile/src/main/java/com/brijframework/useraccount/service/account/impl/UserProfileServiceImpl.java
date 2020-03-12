@@ -30,6 +30,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 	public UserProfileResponse saveUserProfile(UserProfileRequest userProfileRequest) {
 		EOUserAccount eoUserAccount = userAccountRepository.findById(userProfileRequest.getAccountId()).orElseThrow(()->new RuntimeException("Invalid account id found."));
 		EOUserProfile eoUserProfile=userProfileMapper.mapRequestToDAO(userProfileRequest);
+		eoUserProfile.setActive(true);
 		eoUserProfile.setUserAccount(eoUserAccount);
 		eoUserProfile=userProfileRepo.save(eoUserProfile);
 		return userProfileMapper.mapToDTOResponse(eoUserProfile);

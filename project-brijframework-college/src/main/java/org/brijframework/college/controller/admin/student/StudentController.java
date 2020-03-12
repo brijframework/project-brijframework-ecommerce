@@ -887,7 +887,6 @@ public class StudentController {
 
 	}
 
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "PDFstudent-byId", method = RequestMethod.GET)
 	public ModelAndView studentperformaPDF(@RequestParam Integer id,
 			ModelAndView modelAndView, HttpServletRequest request) {
