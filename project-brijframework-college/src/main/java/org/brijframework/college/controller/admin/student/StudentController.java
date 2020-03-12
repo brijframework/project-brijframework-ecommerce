@@ -316,7 +316,6 @@ public class StudentController {
 		return "showstudentdetails";
 	}
 
-	@SuppressWarnings("deprecation")
 	@RequestMapping(method = RequestMethod.GET, value = "student-profile.html")
 	public ModelAndView studentProfile(ModelAndView modelAndView,
 			@RequestParam Integer id, HttpServletRequest request) {
@@ -727,7 +726,6 @@ public class StudentController {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "getPDFTc", method = RequestMethod.GET)
 	public ModelAndView getTc(@RequestParam Integer id,
 			ModelAndView modelAndView, HttpServletRequest request)
@@ -749,7 +747,6 @@ public class StudentController {
 		return modelAndView;
 	}
 
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "issue-tc", method = RequestMethod.POST)
 	public ModelAndView issueTC(
 			@ModelAttribute("StudentTransferDTO") StudentTransferDTO studentTransferDTO,
@@ -773,7 +770,6 @@ public class StudentController {
 		modelAndView = new ModelAndView("maharanatc", parameterMap);
 		return modelAndView;
 	}
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "new_issue-tcPDF", method = RequestMethod.GET)
 	public ModelAndView getissueNewTC(
 			@ModelAttribute("id") Integer id,
@@ -798,7 +794,6 @@ public class StudentController {
 
 	}
 
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "new_issue-tc", method = RequestMethod.GET)
 	public ModelAndView issueNewTC(
 			@ModelAttribute("newStudentTransferDTO") NewStudentTransferDTO newStudentTransferDTO,

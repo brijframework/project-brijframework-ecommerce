@@ -33,11 +33,11 @@
 	<field name="logo" class="java.lang.String"/>
 
 		<background>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</background>
 		<title>
-			<band height="78"  isSplitAllowed="true" >
+			<band height="78"  splitType="true" >
 				<staticText>
 					<reportElement
 						x="195"
@@ -91,7 +91,7 @@
 			</band>
 		</title>
 		<pageHeader>
-			<band height="25"  isSplitAllowed="true" >
+			<band height="25"  splitType="true" >
 				<staticText>
 					<reportElement
 						x="229"
@@ -108,11 +108,11 @@
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="176"  isSplitAllowed="true" >
+			<band height="176"  splitType="true" >
 				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="209"
@@ -329,19 +329,19 @@
 			</band>
 		</detail>
 		<columnFooter>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</columnFooter>
 		<pageFooter>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</pageFooter>
 		<lastPageFooter>
-			<band height="1"  isSplitAllowed="true" >
+			<band height="1"  splitType="true" >
 			</band>
 		</lastPageFooter>
 		<summary>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</summary>
 </jasperReport>

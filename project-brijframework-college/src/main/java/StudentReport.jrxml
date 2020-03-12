@@ -66,15 +66,15 @@
 	<field name="totalseptFee" class="java.lang.String"/>
 
 		<background>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</background>
 		<title>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</title>
 		<pageHeader>
-			<band height="34"  isSplitAllowed="true" >
+			<band height="34"  splitType="true" >
 				<staticText>
 					<reportElement
 						x="1187"
@@ -94,7 +94,7 @@
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="30"  isSplitAllowed="true" >
+			<band height="30"  splitType="true" >
 				<staticText>
 					<reportElement
 						x="128"
@@ -383,7 +383,7 @@
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="35"  isSplitAllowed="true" >
+			<band height="35"  splitType="true" >
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="2414"
@@ -683,7 +683,7 @@
 			</band>
 		</detail>
 		<columnFooter>
-			<band height="30"  isSplitAllowed="true" >
+			<band height="30"  splitType="true" >
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="2287"
@@ -882,11 +882,11 @@
 			</band>
 		</columnFooter>
 		<pageFooter>
-			<band height="0"  isSplitAllowed="true" >
+			<band height="0"  splitType="true" >
 			</band>
 		</pageFooter>
 		<summary>
-			<band height="1"  isSplitAllowed="true" >
+			<band height="1"  splitType="true" >
 			</band>
 		</summary>
 </jasperReport>
